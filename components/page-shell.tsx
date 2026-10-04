@@ -9,10 +9,10 @@ export default function PageShell({eyebrow,title,description,children}:{eyebrow:
   <section className="living-section mesh relative overflow-hidden px-5 pb-16 pt-36">
     <FloatingOrb className="absolute left-[5%] top-20 h-40 w-40 rounded-full bg-allino-lime/20 blur-3xl"/>
     <FloatingOrb delay={2} className="absolute right-[8%] top-24 h-52 w-52 rounded-full bg-allino-gold/20 blur-3xl"/>
-    <motion.div initial={{opacity:0,y:24}} animate={{opacity:1,y:0}} transition={{duration:.55,ease:"easeOut"}} className="relative z-10 mx-auto max-w-7xl">
-      <p className="font-bold uppercase tracking-[.2em] text-allino-gold">{eyebrow}</p>
-      <h1 className="mt-3 max-w-4xl text-5xl font-black tracking-[-.04em] md:text-7xl">{title}</h1>
-      <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">{description}</p>
+    <motion.div initial={{opacity:0,y:24}} animate={{opacity:1,y:0}} transition={{duration:.55,ease:"easeOut"}} className="page-hero-accent relative z-10 mx-auto max-w-7xl">
+      <motion.p initial={{opacity:0,x:-14}} animate={{opacity:1,x:0}} transition={{type:"spring",stiffness:120,damping:20,delay:.05}} className="font-bold uppercase tracking-[.2em] text-allino-gold">{eyebrow}</motion.p>
+      <motion.h1 initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{type:"spring",stiffness:105,damping:19,delay:.1}} className="mt-3 max-w-4xl text-5xl font-black tracking-[-.04em] md:text-7xl">{title}</motion.h1>
+      <motion.p initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{type:"spring",stiffness:100,damping:20,delay:.16}} className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">{description}</motion.p>
     </motion.div>
   </section>
   {children}
