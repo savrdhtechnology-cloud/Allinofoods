@@ -1,10 +1,21 @@
 "use client";
 
-import {motion, useReducedMotion} from "framer-motion";
+import {motion, useReducedMotion, type Variants} from "framer-motion";
 import {ReactNode, useEffect, useState} from "react";
 
-export const fadeUp={hidden:{opacity:0,y:24},show:{opacity:1,y:0,transition:{duration:.55,ease:[.22,1,.36,1]}}};
-export const stagger={hidden:{},show:{transition:{staggerChildren:.09}}};
+export const fadeUp: Variants = {
+  hidden: {opacity:0,y:24},
+  show: {
+    opacity:1,
+    y:0,
+    transition:{duration:.55,ease:"easeOut"}
+  }
+};
+
+export const stagger: Variants = {
+  hidden:{},
+  show:{transition:{staggerChildren:.09}}
+};
 
 export function Reveal({children,className=""}:{children:ReactNode;className?:string}) {
   return <motion.div className={className} variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true,amount:.2}}>{children}</motion.div>;
@@ -27,6 +38,16 @@ export function FloatingOrb({className="",delay=0}:{className?:string;delay?:num
 export function Counter({value,suffix=""}:{value:number;suffix?:string}) {
   const [n,setN]=useState(0);
   const reduce=useReducedMotion();
-  useEffect(()=>{if(reduce){setN(value);return} let frame=0; const total=40; const id=setInterval(()=>{frame++;setN(Math.round(value*frame/total));if(frame>=total)clearInterval(id)},24);return()=>clearInterval(id)},[value,reduce]);
+  useEffect(()=>{
+    if(reduce){setN(value);return}
+    let frame=0;
+    const total=40;
+    const id=setInterval(()=>{
+      frame++;
+      setN(Math.round(value*frame/total));
+      if(frame>=total) clearInterval(id);
+    },24);
+    return()=>clearInterval(id);
+  },[value,reduce]);
   return <>{n.toLocaleString("en-IN")}{suffix}</>;
 }
