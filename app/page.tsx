@@ -25,15 +25,17 @@ const featuredDishes=[
 
 export default function Home(){
  return <main className="relative min-h-screen overflow-hidden allino-surface-light"><HomeAnimatedBackground/><div className="relative z-10"><SiteHeader/>
-  <section className="relative px-5 pb-8 pt-28 md:pt-32">
-    <div className="relative z-10 mx-auto max-w-7xl">
+  <section className="relative pb-8 pt-20 md:pt-24">
+    <div className="relative left-1/2 z-10 w-screen -translate-x-1/2">
       <HeroFoodSlider/>
+    </div>
+    <div className="relative z-10 mx-auto max-w-7xl px-5">
 
       <motion.div
         initial={{opacity:0,y:14}}
         animate={{opacity:1,y:0}}
         transition={{type:"spring",stiffness:110,damping:20,delay:.18}}
-        className="mx-auto mt-5 grid max-w-5xl gap-3 border border-allino-green/10 bg-white/95 p-3 shadow-card backdrop-blur md:grid-cols-[.35fr_1fr_auto]"
+        className="mx-auto mt-5 grid max-w-5xl gap-3 bg-white/95 p-3 shadow-card backdrop-blur md:grid-cols-[.35fr_1fr_auto]"
       >
         <div className="flex items-center gap-3 rounded-xl bg-[#f6f8f5] px-4">
           <MapPin size={19} className="text-allino-green"/>
@@ -48,7 +50,7 @@ export default function Home(){
         </motion.button>
       </motion.div>
 
-      <div className="mx-auto mt-5 grid max-w-5xl grid-cols-2 gap-3 px-5 md:grid-cols-4 md:px-0">
+      <div className="mx-auto mt-5 grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-4">
         {[
           ["Verified Kitchens","Trusted home chefs & restaurants"],
           ["Fresh Ingredients","Hygienic & quality food"],
