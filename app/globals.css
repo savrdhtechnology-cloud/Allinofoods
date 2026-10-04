@@ -97,3 +97,54 @@ body{margin:0;background:#fffdf8;color:#10251e;font-family:Inter,ui-sans-serif,s
 @media (prefers-reduced-motion:reduce){
   .hero-food-card::after,.allino-marquee-track{animation:none!important}
 }
+
+/* ALLINO premium page motion language */
+.page-hero-accent::after{
+  content:"";display:block;width:84px;height:3px;margin-top:24px;border-radius:999px;
+  background:linear-gradient(90deg,#6FAE3D,#D6A83D);transform-origin:left;
+  animation:allinoAccentIn .8s cubic-bezier(.22,1,.36,1) both
+}
+@keyframes allinoAccentIn{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+
+.motion-food-card{position:relative;isolation:isolate;overflow:hidden}
+.motion-food-card::before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:0;
+  background:radial-gradient(circle at 75% 20%,rgba(214,168,61,.14),transparent 34%),radial-gradient(circle at 20% 80%,rgba(111,174,61,.12),transparent 34%);
+  transition:opacity .35s ease
+}
+.motion-food-card:hover::before{opacity:1}
+.motion-food-emoji{display:inline-block;transition:transform .35s cubic-bezier(.22,1,.36,1),filter .35s ease}
+.motion-food-card:hover .motion-food-emoji{transform:translateY(-5px) scale(1.06) rotate(-2deg);filter:drop-shadow(0 12px 18px rgba(15,77,58,.12))}
+
+.motion-chef-card{position:relative;overflow:hidden}
+.motion-chef-card::after{content:"";position:absolute;inset:auto -18% -35% auto;width:160px;height:160px;border-radius:999px;background:radial-gradient(circle,rgba(214,168,61,.12),transparent 68%);transition:transform .4s ease}
+.motion-chef-card:hover::after{transform:scale(1.18)}
+.motion-chef-icon{display:inline-block;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.motion-chef-card:hover .motion-chef-icon{transform:translateY(-4px) rotate(-3deg) scale(1.04)}
+
+.motion-step-card{position:relative;overflow:hidden}
+.motion-step-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(#6FAE3D,#D6A83D);transform:scaleY(0);transform-origin:top;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.motion-step-card:hover::before{transform:scaleY(1)}
+
+.motion-form-card input,.motion-form-card select,.motion-form-card textarea{
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease
+}
+.motion-form-card input:focus,.motion-form-card select:focus,.motion-form-card textarea:focus{
+  outline:none;border-color:rgba(111,174,61,.7);box-shadow:0 0 0 4px rgba(111,174,61,.10);transform:translateY(-1px)
+}
+
+.portal-metric{position:relative;overflow:hidden}
+.portal-metric::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,#6FAE3D,#D6A83D);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.portal-metric:hover::after{transform:scaleX(1)}
+
+.status-live{position:relative}
+.status-live::before{content:"";position:absolute;width:7px;height:7px;border-radius:999px;background:#95C11F;left:-12px;top:50%;transform:translateY(-50%);box-shadow:0 0 0 0 rgba(149,193,31,.35);animation:statusPulse 2s ease-out infinite}
+@keyframes statusPulse{0%{box-shadow:0 0 0 0 rgba(149,193,31,.35)}70%{box-shadow:0 0 0 8px rgba(149,193,31,0)}100%{box-shadow:0 0 0 0 rgba(149,193,31,0)}}
+
+.crm-row{transition:background-color .2s ease,transform .2s ease}
+.crm-row:hover{background:rgba(255,255,255,.045);transform:translateX(2px)}
+
+@media (prefers-reduced-motion:reduce){
+  .page-hero-accent::after,.status-live::before{animation:none!important}
+  .motion-food-emoji,.motion-chef-icon,.motion-step-card::before,.portal-metric::after{transition:none!important}
+}
