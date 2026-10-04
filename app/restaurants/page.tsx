@@ -1,6 +1,15 @@
 import PageShell from "@/components/page-shell";
-import {MotionGrid,MotionCard} from "@/components/motion/PageMotion";
-const items=[["Green Bowl Kitchen","Healthy • Fresh","4.8"],["Spice Route","Indian • Homestyle","4.7"],["The Local Tandoor","North Indian","4.9"],["Urban Tiffin Co.","Daily Meals","4.6"],["South Story","South Indian","4.8"],["Sweet District","Desserts","4.7"]];
-export default function Restaurants(){return <PageShell eyebrow="Restaurants" title="Great kitchens, one simple marketplace." description="Explore restaurants by cuisine, rating and delivery experience.">
-<section className="px-5 py-20"><MotionGrid className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-3">{items.map((x,i)=><MotionCard key={x[0]} className="motion-food-card overflow-hidden rounded-[2rem] bg-white shadow-card"><div className="grid h-52 place-items-center bg-gradient-to-br from-green-50 to-amber-50 text-7xl"><span className="motion-food-emoji">{["🥗","🍛","🍗","🍱","🥘","🍰"][i]}</span></div><div className="p-6"><div className="flex justify-between gap-4"><div><h2 className="text-xl font-black">{x[0]}</h2><p className="mt-1 text-sm text-slate-500">{x[1]}</p></div><span className="h-fit rounded-full bg-green-50 px-3 py-1 text-xs font-bold text-allino-green">★ {x[2]}</span></div><button className="mt-5 rounded-xl bg-allino-green px-4 py-2 text-sm font-bold text-white">View Menu</button></div></MotionCard>)}</MotionGrid></section>
+import RestaurantCard,{type RestaurantCardData} from "@/components/restaurant/restaurant-card";
+
+const restaurants:RestaurantCardData[]=[
+{name:"Green Bowl Kitchen",cuisine:"Healthy • Fresh • Bowls",rating:4.8,time:"25–30 min",location:"Bhopal",offer:"20% OFF",image:"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=82"},
+{name:"Spice Route",cuisine:"Indian • Homestyle",rating:4.7,time:"30–35 min",location:"Bhopal",offer:"₹100 OFF",image:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=900&q=82"},
+{name:"The Local Tandoor",cuisine:"North Indian • Grill",rating:4.9,time:"25–30 min",location:"Bhopal",image:"https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=900&q=82"},
+{name:"Urban Tiffin Co.",cuisine:"Daily Meals • Tiffin",rating:4.6,time:"30–40 min",location:"Bhopal",image:"https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=82"},
+{name:"South Story",cuisine:"South Indian • Breakfast",rating:4.8,time:"20–30 min",location:"Bhopal",image:"https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=900&q=82"},
+{name:"Sweet District",cuisine:"Desserts • Sweets",rating:4.7,time:"25–35 min",location:"Bhopal",image:"https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=900&q=82"}
+];
+
+export default function Restaurants(){return <PageShell eyebrow="Restaurants" title="Great kitchens, one simple marketplace." description="Explore local restaurants by cuisine, rating and delivery experience.">
+<section className="px-5 py-14 sm:py-20"><div className="mx-auto max-w-7xl"><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{restaurants.map(item=><RestaurantCard key={item.name} item={item}/>)}</div></div></section>
 </PageShell>}
