@@ -70,3 +70,15 @@ button,a{ -webkit-tap-highlight-color:transparent }
   .motion-food-card:hover,.motion-chef-card:hover,.portal-metric:hover{transform:none}
   .food-card:hover .food-card-image{transform:none}
 }
+
+
+/* Compatibility helpers retained for existing route sections */
+.mesh{background-image:radial-gradient(circle at 15% 15%,rgba(217,95,69,.10),transparent 30%),radial-gradient(circle at 85% 10%,rgba(226,169,59,.12),transparent 28%),radial-gradient(circle at 60% 80%,rgba(30,77,58,.08),transparent 35%)}
+.allino-surface-light{background:linear-gradient(180deg,#FFF8ED,#FFFCF7)}
+.allino-surface-soft{background:linear-gradient(180deg,#F5EDE2,#FFF8ED)}
+.allino-surface-dark{background:linear-gradient(145deg,#201B17,#17251F)}
+.living-section{position:relative;isolation:isolate;overflow:hidden}
+.text-gradient{background:linear-gradient(100deg,#1E4D3A,#D95F45 62%,#E2A93B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-fade-cream{background:linear-gradient(180deg,#FFF8ED,#FFFCF7)}
+.section-fade-green{background:linear-gradient(180deg,#F2F6EF,#FFF8ED)}
+.section-fade-gold{background:linear-gradient(180deg,#FFF8ED,#F8ECD8)}
