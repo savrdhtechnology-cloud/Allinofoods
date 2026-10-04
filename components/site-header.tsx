@@ -21,7 +21,7 @@ export default function SiteHeader(){
     <div className="relative z-[61] bg-allino-green px-4 py-2 text-center text-[11px] font-bold tracking-wide text-white sm:text-xs">
       Fresh local food from Allino, restaurants & home chefs. <Link href="/dishes" className="ml-1 underline decoration-white/40 underline-offset-4">Explore now</Link>
     </div>
-    <motion.header initial={reduce?false:{y:-12,opacity:0}} animate={{y:0,opacity:1}} className="sticky top-0 z-[60] border-b border-black/[.06] bg-[#FFF8ED]/92 px-4 backdrop-blur-xl">
+    <motion.header initial={reduce?false:{y:-12,opacity:0}} animate={{y:0,opacity:1}} className="sticky top-0 z-[60] border-b border-black/[.06] bg-[#FFF8ED]/95 px-4 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4">
         <Link href="/" aria-label="Allino Foods home" className="flex shrink-0 items-center gap-2.5">
           <span className="grid h-10 w-10 place-items-center rounded-full bg-allino-coral text-white"><ChefHat size={20}/></span>
