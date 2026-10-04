@@ -96,7 +96,7 @@ export default function HeroFoodSlider(){
   const change=(dir:number)=>setIndex(v=>(v+dir+slides.length)%slides.length);
 
   return <div className="w-full">
-    <div className="relative min-h-[560px] overflow-hidden rounded-[2rem] bg-[#0B3D2E] shadow-[0_28px_80px_rgba(11,61,46,.20)] md:min-h-[600px]">
+    <div className="relative min-h-[560px] overflow-hidden bg-[#0B3D2E] md:min-h-[610px]">
       <AnimatePresence mode="wait">
         <motion.div
           key={current.title}
@@ -119,7 +119,7 @@ export default function HeroFoodSlider(){
         <ChevronRight size={24}/>
       </button>
 
-      <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1500px] flex-col justify-between px-7 pb-5 pt-10 md:min-h-[610px] md:px-20 md:pb-6 md:pt-14 lg:px-28">
+      <div className="relative z-20 mx-auto flex min-h-[560px] w-full max-w-[1600px] flex-col justify-between px-7 pb-5 pt-10 md:min-h-[610px] md:px-20 md:pb-6 md:pt-14 lg:px-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.title+"-content"}
