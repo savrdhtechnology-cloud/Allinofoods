@@ -18,7 +18,7 @@ export const stagger: Variants = {
 };
 
 export function Reveal({children,className=""}:{children:ReactNode;className?:string}) {
-  return <motion.div className={className} variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true,amount:.2}}>{children}</motion.div>;
+  return <motion.div className={"food-aura-card "+className} variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true,amount:.2}}>{children}</motion.div>;
 }
 
 export function Stagger({children,className=""}:{children:ReactNode;className?:string}) {
