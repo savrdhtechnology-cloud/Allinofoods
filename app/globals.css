@@ -41,3 +41,36 @@ body{margin:0;background:#fffdf8;color:#10251e;font-family:Inter,ui-sans-serif,s
 @keyframes allinoFloatA{0%,100%{transform:translate3d(-12px,-8px,0) scale(.98)}50%{transform:translate3d(20px,18px,0) scale(1.05)}}
 @keyframes allinoFloatB{0%,100%{transform:translate3d(16px,-10px,0) scale(1.03)}50%{transform:translate3d(-18px,20px,0) scale(.96)}}
 @media (prefers-reduced-motion:reduce){.hero-living-bg::before,.hero-living-bg::after,.dark-living-bg::before,.dark-living-bg::after{animation:none!important}}
+
+/* Visible living ecosystem motion: local section layers + safe ambient overlay */
+.living-section{position:relative;isolation:isolate;overflow:hidden}
+.living-section>*{position:relative;z-index:2}
+.living-section::before,.living-section::after{
+  content:"";position:absolute;pointer-events:none;border-radius:999px;z-index:1;
+  filter:blur(60px);will-change:transform;opacity:.55
+}
+.living-section::before{
+  width:26rem;height:26rem;left:-8rem;top:8%;
+  background:radial-gradient(circle,rgba(111,174,61,.24),transparent 66%);
+  animation:allinoDriftOne 15s ease-in-out infinite
+}
+.living-section::after{
+  width:24rem;height:24rem;right:-7rem;bottom:4%;
+  background:radial-gradient(circle,rgba(214,168,61,.20),transparent 66%);
+  animation:allinoDriftTwo 19s ease-in-out infinite
+}
+@keyframes allinoDriftOne{
+  0%,100%{transform:translate3d(-16px,-10px,0) scale(.96)}
+  50%{transform:translate3d(26px,22px,0) scale(1.06)}
+}
+@keyframes allinoDriftTwo{
+  0%,100%{transform:translate3d(18px,-8px,0) scale(1.04)}
+  50%{transform:translate3d(-24px,20px,0) scale(.95)}
+}
+.ambient-dot{
+  position:absolute;border-radius:999px;pointer-events:none;z-index:3;
+  box-shadow:0 0 12px currentColor
+}
+@media (prefers-reduced-motion:reduce){
+  .living-section::before,.living-section::after{animation:none!important}
+}
