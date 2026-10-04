@@ -7,7 +7,6 @@ const sans=Manrope({subsets:["latin"],variable:"--font-sans",display:"swap"});
 const display=Playfair_Display({subsets:["latin"],variable:"--font-display",display:"swap"});
 
 export const metadata:Metadata={
-  metadataBase:new URL("https://allinofoods.com"),
   title:{default:"Allino Foods | Discover Great Food",template:"%s | Allino Foods"},
   description:"Discover great food from Allino Foods, trusted restaurants and talented home chefs. Explore dishes, local kitchens and fresh food in one marketplace.",
   openGraph:{
