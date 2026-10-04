@@ -13,3 +13,18 @@ body{margin:0;background:#fffdf8;color:#10251e;font-family:Inter,ui-sans-serif,s
 .grid-bg{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:28px 28px}
 .text-gradient{background:linear-gradient(100deg,#0B3D2E,#6D9B11 55%,#D6A84B);-webkit-background-clip:text;background-clip:text;color:transparent}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+
+/* ALLINO living ecosystem helpers */
+.allino-surface-light{background:linear-gradient(180deg,rgba(247,241,223,.90),rgba(255,253,248,.86))}
+.allino-surface-soft{background:linear-gradient(180deg,rgba(239,247,235,.78),rgba(247,241,223,.82))}
+.allino-surface-dark{background:linear-gradient(180deg,rgba(6,17,13,.92),rgba(7,23,18,.94))}
+.food-aura-card{transition:transform .38s cubic-bezier(.22,1,.36,1),filter .38s ease}
+.food-aura-card:hover{transform:translateY(-5px);filter:drop-shadow(0 18px 28px rgba(15,77,58,.10)) drop-shadow(0 8px 18px rgba(214,168,61,.08))}
+.food-aura-card img{transition:transform .38s cubic-bezier(.22,1,.36,1)}
+.food-aura-card:hover img{transform:scale(1.04)}
+.dark-aura{position:relative;isolation:isolate}
+.dark-aura::before{content:"";position:absolute;inset:-12%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 20% 20%,rgba(111,174,61,.12),transparent 34%),radial-gradient(circle at 82% 70%,rgba(214,168,61,.10),transparent 38%);filter:blur(36px);opacity:.7}
+.section-fade-cream{background:linear-gradient(180deg,rgba(247,241,223,.78),rgba(255,253,248,.70))}
+.section-fade-green{background:linear-gradient(180deg,rgba(242,247,239,.72),rgba(247,241,223,.70))}
+.section-fade-gold{background:linear-gradient(180deg,rgba(255,253,248,.68),rgba(246,236,207,.64))}
+@media (prefers-reduced-motion:reduce){.food-aura-card,.food-aura-card img{transition:none!important}.food-aura-card:hover{transform:none!important}}
