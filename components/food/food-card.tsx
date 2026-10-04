@@ -15,7 +15,7 @@ export default function FoodCard({dish,priority=false}:{dish:Dish;priority?:bool
     whileInView={reduce?{}:{opacity:1,y:0}}
     viewport={{once:true,amount:.15}}
     transition={{duration:.38,ease:[.22,1,.36,1]}}
-    className="food-card group overflow-hidden rounded-[1.4rem] border border-black/[.06] bg-white shadow-soft"
+    className="food-card group overflow-hidden rounded-[1.65rem] border border-black/[.07] bg-[#FFFDF8] shadow-[0_15px_45px_rgba(47,34,24,.08)]"
   >
     <Link href={`/dishes/${dish.slug}`} className="block focus-visible:outline-offset-[-3px]">
       <div className="relative aspect-[4/3] overflow-hidden bg-allino-sand">
@@ -28,7 +28,7 @@ export default function FoodCard({dish,priority=false}:{dish:Dish;priority?:bool
       </div>
       <div className="p-4 sm:p-5">
         <p className="text-[11px] font-bold uppercase tracking-[.12em] text-allino-coral">{dish.partnerType}</p>
-        <h3 className="mt-1 line-clamp-1 text-lg font-semibold tracking-[-.02em] sm:text-xl">{dish.dish}</h3>
+        <h3 className="mt-1 line-clamp-1 font-display text-[1.35rem] font-semibold leading-tight tracking-[-.035em] sm:text-[1.5rem]">{dish.dish}</h3>
         <p className="mt-1 line-clamp-1 text-xs font-semibold text-stone-500 sm:text-sm">by {dish.maker}</p>
         <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-[11px] font-semibold text-stone-500 sm:text-xs">
           <span className="inline-flex items-center gap-1"><Clock3 size={13}/>{dish.time}</span>
@@ -36,7 +36,7 @@ export default function FoodCard({dish,priority=false}:{dish:Dish;priority?:bool
         </div>
         <div className="mt-4 flex items-center justify-between gap-3 border-t border-black/[.06] pt-4">
           <Price value={dish.price}/>
-          <span className="grid h-10 w-10 place-items-center rounded-full bg-allino-green text-white shadow-sm transition group-hover:bg-allino-coral" aria-hidden="true"><Plus size={18}/></span>
+          <span className="grid h-10 w-10 place-items-center rounded-full bg-allino-green text-white shadow-[0_8px_20px_rgba(23,61,47,.18)] transition duration-300 group-hover:rotate-90 group-hover:bg-allino-coral" aria-hidden="true"><Plus size={18}/></span>
         </div>
       </div>
     </Link>
