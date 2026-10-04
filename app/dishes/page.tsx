@@ -17,6 +17,7 @@ import {
   UtensilsCrossed,
 } from "lucide-react";
 import PageShell from "@/components/page-shell";
+import FoodPhoto from "@/components/dishes/FoodPhoto";
 import {MotionButton,MotionCard,MotionGrid,MotionSection} from "@/components/motion/PageMotion";
 
 import {dishes,type FoodType} from "@/lib/dishes";
@@ -123,7 +124,7 @@ export default function DishesPage(){
             {filtered.map((item,i)=>
               <MotionCard key={item.slug} className="motion-food-card overflow-hidden rounded-[2rem] border border-allino-green/10 bg-white shadow-card">
                 <div className={"relative grid h-56 place-items-center text-8xl "+(i%3===0?"bg-gradient-to-br from-[#eef8e8] to-[#fff8e8]":i%3===1?"bg-gradient-to-br from-[#fff7df] to-[#edf7e9]":"bg-gradient-to-br from-[#edf7e9] to-white")}>
-                  <span className="motion-food-emoji">{item.emoji}</span>
+                  {item.imageSet?.length ? <FoodPhoto index={item.imageSet[0]} className="absolute inset-0 h-full w-full"/> : <span className="motion-food-emoji">{item.emoji}</span>}
                   <div className="absolute left-4 top-4 flex flex-wrap gap-2">
                     <span className="rounded-full border border-white/60 bg-white/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.13em] text-allino-green">{item.partnerType}</span>
                     <span className={"rounded-full px-3 py-1.5 text-[10px] font-black uppercase tracking-[.13em] "+(item.foodType==="Veg"?"bg-green-100 text-green-700":"bg-red-50 text-red-700")}>{item.foodType}</span>
