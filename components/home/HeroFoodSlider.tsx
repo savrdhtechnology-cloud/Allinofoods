@@ -3,7 +3,7 @@
 import {useEffect,useRef,useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {AnimatePresence,motion,useReducedMotion,useScroll,useTransform,type LucideIcon} from "framer-motion";
+import {AnimatePresence,motion,useReducedMotion,useScroll,useTransform} from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
@@ -18,6 +18,7 @@ import {
   Sparkles,
   Star,
   Truck,
+  type LucideIcon,
 } from "lucide-react";
 import SearchBar from "@/components/search/search-bar";
 
