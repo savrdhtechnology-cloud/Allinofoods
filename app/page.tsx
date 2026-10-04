@@ -6,6 +6,7 @@ import {motion,useReducedMotion,useScroll,useTransform} from "framer-motion";
 import {ArrowRight,BadgeCheck,Bike,ChefHat,Clock3,Heart,Leaf,PackageCheck,ShieldCheck,Sparkles,Star,Store,UtensilsCrossed,type LucideIcon} from "lucide-react";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
+import HeroFoodSlider from "@/components/home/HeroFoodSlider";
 import SearchBar from "@/components/search/search-bar";
 import CategoryCard from "@/components/marketplace/category-card";
 import FoodCard from "@/components/food/food-card";
@@ -65,70 +66,7 @@ export default function Home(){
   return <main className="min-h-screen bg-allino-cream text-allino-ink">
     <SiteHeader/>
 
-    <section className="premium-noise hero-grid relative isolate overflow-hidden bg-[#142A21] text-white">
-      <motion.div style={reduce?undefined:{y:heroY,scale:heroScale}} aria-hidden="true" className="absolute inset-0 opacity-35">
-        <div className="absolute -left-20 top-12 h-80 w-80 rounded-full bg-[#D85F36]/30 blur-[110px]"/>
-        <div className="absolute right-[4%] top-[5%] h-96 w-96 rounded-full bg-[#D8A33C]/15 blur-[130px]"/>
-        <div className="absolute bottom-0 left-[42%] h-72 w-72 rounded-full bg-[#5E8B68]/20 blur-[120px]"/>
-      </motion.div>
-
-      <div aria-hidden="true" className="hero-ring absolute -right-32 -top-28 hidden h-[620px] w-[620px] rounded-full lg:block"/>
-      <div aria-hidden="true" className="hero-ring reverse absolute -right-10 top-16 hidden h-[420px] w-[420px] rounded-full lg:block"/>
-
-      <div className="relative mx-auto grid min-h-[760px] max-w-7xl items-center gap-14 px-5 py-20 lg:grid-cols-[.93fr_1.07fr] lg:py-24 xl:min-h-[820px]">
-        <motion.div initial={reduce?false:{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:.8,ease:[.22,1,.36,1]}} className="relative z-10">
-          <motion.div initial={reduce?false:{opacity:0,x:-20}} animate={{opacity:1,x:0}} transition={{delay:.1,duration:.6}} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.07] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#F1C977] backdrop-blur">
-            <Sparkles size={14}/> Bhopal’s premium local food marketplace
-          </motion.div>
-
-          <h1 className="mt-7 max-w-[760px] text-balance font-display text-[3.9rem] font-semibold leading-[.86] tracking-[-.065em] sm:text-[5.1rem] lg:text-[5.6rem] xl:text-[6.6rem]">
-            Food worth <span className="italic text-[#F0C56E]">discovering.</span>
-            <span className="mt-2 block text-white/95">Made closer to home.</span>
-          </h1>
-
-          <p className="mt-7 max-w-xl text-base leading-8 text-white/62 sm:text-lg">
-            Discover remarkable dishes from Allino Foods, trusted restaurants and talented home chefs — curated into one elegant local marketplace.
-          </p>
-
-          <div className="mt-8 max-w-2xl"><SearchBar/></div>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <motion.div whileHover={reduce?{}:{y:-3}} whileTap={reduce?{}:{scale:.98}}>
-              <Link href="/dishes" className="shine inline-flex items-center gap-2 rounded-full bg-[#D85F36] px-7 py-4 text-sm font-extrabold text-white shadow-[0_18px_45px_rgba(216,95,54,.28)]">Explore dishes <ArrowRight size={17}/></Link>
-            </motion.div>
-            <motion.div whileHover={reduce?{}:{y:-3}} whileTap={reduce?{}:{scale:.98}}>
-              <Link href="/partner" className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/[.07] px-7 py-4 text-sm font-extrabold text-white backdrop-blur transition hover:bg-white/[.12]">Become a partner</Link>
-            </motion.div>
-          </div>
-
-          <div className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-xs font-bold text-white/55">
-            <span className="inline-flex items-center gap-2"><BadgeCheck size={16} className="text-[#F0C56E]"/>Verified kitchens</span>
-            <span className="inline-flex items-center gap-2"><Clock3 size={16} className="text-[#F0C56E]"/>Fast local delivery</span>
-            <span className="inline-flex items-center gap-2"><Heart size={16} className="text-[#F0C56E]"/>Home chef discovery</span>
-          </div>
-        </motion.div>
-
-        <div className="relative mx-auto h-[580px] w-full max-w-[640px] sm:h-[640px] lg:h-[670px]">
-          <motion.div initial={reduce?false:{opacity:0,scale:.9,rotate:4}} animate={{opacity:1,scale:1,rotate:0}} transition={{duration:.9,delay:.12,ease:[.22,1,.36,1]}} className="absolute left-[14%] top-[2%] h-[72%] w-[72%] overflow-hidden rounded-[50%_50%_44%_56%/55%_44%_56%_45%] border border-white/10 shadow-[0_45px_100px_rgba(0,0,0,.35)]">
-            <Image src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=90" alt="Premium food spread" fill priority sizes="(max-width: 1024px) 90vw, 48vw" className="object-cover"/>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/[.04]"/>
-          </motion.div>
-
-          <motion.div initial={reduce?false:{opacity:0,x:38,y:20}} animate={{opacity:1,x:0,y:0}} transition={{duration:.7,delay:.42}} className="float-slow absolute right-[0%] top-[8%] w-[42%] overflow-hidden rounded-[1.7rem] border border-white/12 bg-white/[.07] p-2 shadow-[0_30px_70px_rgba(0,0,0,.25)] backdrop-blur">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem]"><Image src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=88" alt="Indian food" fill sizes="280px" className="object-cover"/></div>
-            <div className="flex items-center justify-between px-2 pb-1 pt-3"><div><p className="text-[9px] font-extrabold uppercase tracking-[.14em] text-[#F0C56E]">Trending</p><p className="mt-1 text-xs font-extrabold">Indian favourites</p></div><Star size={14} fill="currentColor" className="text-[#F0C56E]"/></div>
-          </motion.div>
-
-          <motion.div initial={reduce?false:{opacity:0,x:-30,y:24}} animate={{opacity:1,x:0,y:0}} transition={{duration:.7,delay:.55}} className="float-delay absolute bottom-[9%] left-[1%] w-[45%] rounded-[1.7rem] border border-white/10 bg-[#FFFDF8] p-4 text-allino-ink shadow-[0_30px_70px_rgba(0,0,0,.25)]">
-            <div className="flex items-center gap-3"><span className="grid h-11 w-11 place-items-center rounded-full bg-[#E9EFEA] text-allino-green"><ChefHat size={20}/></span><div><p className="text-[9px] font-extrabold uppercase tracking-[.15em] text-allino-coral">Home chefs</p><p className="font-display text-xl font-semibold">Freshly made nearby</p></div></div>
-          </motion.div>
-
-          <motion.div initial={reduce?false:{opacity:0,scale:.8}} animate={{opacity:1,scale:1}} transition={{duration:.55,delay:.72}} className="absolute bottom-[25%] right-[5%] rounded-full border border-white/10 bg-[#D85F36] px-4 py-3 text-center shadow-[0_20px_45px_rgba(216,95,54,.32)]">
-            <p className="font-display text-2xl font-bold">4.9</p><p className="text-[8px] font-extrabold uppercase tracking-[.13em] text-white/70">Loved locally</p>
-          </motion.div>
-        </div>
-      </div>
-    </section>
+    <HeroFoodSlider/>
 
     <section className="overflow-hidden border-b border-black/[.06] bg-[#D85F36] py-3.5 text-white">
       <motion.div animate={reduce?{}:{x:["0%","-50%"]}} transition={{duration:24,repeat:Infinity,ease:"linear"}} className="flex w-max whitespace-nowrap">
