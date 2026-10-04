@@ -21,7 +21,7 @@ export default function FoodCard({dish,priority=false}:{dish:Dish;priority?:bool
       <div className="relative aspect-[4/3] overflow-hidden bg-allino-sand">
         <Image src={getDishImage(dish.slug)} alt={dish.dish} fill priority={priority} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="food-card-image object-cover"/>
         <div className="absolute left-3 top-3 flex flex-wrap gap-2">
-          <span className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[.12em] text-allino-green backdrop-blur">{dish.category}</span>
+          <span className="rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[.12em] text-allino-green backdrop-blur">{dish.category}</span>
           <span className={`rounded-full px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[.12em] backdrop-blur ${dish.foodType==="Veg"?"bg-[#EAF4E2]/95 text-[#2F6B3A]":"bg-[#FFF0EC]/95 text-[#A84431]"}`}>{dish.foodType}</span>
         </div>
         <div className="absolute bottom-3 right-3"><Rating value={dish.rating} compact/></div>
