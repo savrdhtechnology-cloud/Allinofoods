@@ -36,7 +36,7 @@ function Leaf({left,top,delay,duration,scale,reduce}:{left:string;top:string;del
   return <motion.svg
     viewBox="0 0 40 24"
     className="absolute h-6 w-10 text-[#6FAE3D]"
-    style={{left,top,opacity:.075,scale}}
+    style={{left,top,opacity:.11,scale}}
     animate={reduce?{}:{x:[-10,14,-10],y:[-22,25,-22],rotate:[-9,10,-9]}}
     transition={{duration,repeat:Infinity,ease:"easeInOut",delay}}
   >
@@ -59,10 +59,10 @@ export default function AnimatedBackground({
       : variant;
 
   const {scrollYProgress}=useScroll();
-  const distance=resolved==="crm"?10:18;
+  const distance=resolved==="crm"?12:24;
   const scrollY=useTransform(scrollYProgress,[0,1],[0,reduce||!parallax?0:distance]);
   const isDark=resolved==="dark"||resolved==="crm";
-  const strength=intensity==="soft"?1:.78;
+  const strength=intensity==="soft"?1.15:.95;
   const visibleParticles=particleData;
 
   const blobBase="absolute rounded-full will-change-transform";
@@ -76,31 +76,31 @@ export default function AnimatedBackground({
     <motion.div style={{y:scrollY}} className="absolute inset-0">
       <motion.div
         className={blobBase+" -left-[12rem] -top-[8rem] h-[34rem] w-[34rem] blur-[115px]"}
-        style={{background:"radial-gradient(circle, rgba(111,174,61,.14), transparent 65%)",...blendStyle}}
+        style={{background:"radial-gradient(circle, rgba(111,174,61,.22), transparent 65%)",...blendStyle}}
         animate={reduce?{}:{x:[-18,20,-18],y:[-12,18,-12],scale:[.96,1.045,.96]}}
         transition={{duration:19,repeat:Infinity,ease:"easeInOut"}}
       />
       <motion.div
         className={blobBase+" right-[-10rem] top-[8%] h-[38rem] w-[38rem] blur-[125px]"}
-        style={{background:"radial-gradient(circle, rgba(214,168,61,.12), transparent 65%)",...blendStyle}}
+        style={{background:"radial-gradient(circle, rgba(214,168,61,.18), transparent 65%)",...blendStyle}}
         animate={reduce?{}:{x:[18,-20,18],y:[-14,20,-14],scale:[1.03,.95,1.03]}}
         transition={{duration:23,repeat:Infinity,ease:"easeInOut",delay:1.4}}
       />
       <motion.div
         className={blobBase+" left-[24%] top-[38%] h-[32rem] w-[32rem] blur-[120px]"}
-        style={{background:"radial-gradient(circle, rgba(15,77,58,.10), transparent 66%)",...blendStyle}}
+        style={{background:"radial-gradient(circle, rgba(15,77,58,.16), transparent 66%)",...blendStyle}}
         animate={reduce?{}:{x:[-16,17,-16],y:[18,-15,18],scale:[.95,1.04,.95]}}
         transition={{duration:25,repeat:Infinity,ease:"easeInOut",delay:2.1}}
       />
       <motion.div
         className={blobBase+" -left-[8rem] bottom-[-9rem] h-[30rem] w-[30rem] blur-[110px]"}
-        style={{background:"radial-gradient(circle, rgba(232,201,106,.10), transparent 64%)",...blendStyle}}
+        style={{background:"radial-gradient(circle, rgba(232,201,106,.15), transparent 64%)",...blendStyle}}
         animate={reduce?{}:{x:[-12,18,-12],y:[10,-18,10],scale:[1,.96,1]}}
         transition={{duration:21,repeat:Infinity,ease:"easeInOut",delay:.7}}
       />
       <motion.div
         className={blobBase+" right-[18%] bottom-[3%] h-[26rem] w-[26rem] blur-[105px]"}
-        style={{background:"radial-gradient(circle, rgba(111,174,61,.09), transparent 64%)",...blendStyle}}
+        style={{background:"radial-gradient(circle, rgba(111,174,61,.14), transparent 64%)",...blendStyle}}
         animate={reduce?{}:{x:[14,-16,14],y:[-10,16,-10],scale:[.97,1.05,.97]}}
         transition={{duration:16,repeat:Infinity,ease:"easeInOut",delay:2.8}}
       />
