@@ -69,7 +69,7 @@ export default function Home(){
           <h2 className="mt-2 max-w-3xl text-4xl font-black tracking-tight text-allino-ink md:text-5xl">Made by local kitchens. Pick what you love.</h2>
           <p className="mt-4 max-w-2xl leading-7 text-slate-600">Discover signature dishes from restaurants, home kitchens and local chefs. See who made it, choose your favourite and continue directly to order.</p>
         </div>
-        <Link href="/menu" className="flex items-center gap-2 font-black text-allino-green">View all dishes <ArrowRight size={18}/></Link>
+        <Link href="/dishes" className="flex items-center gap-2 font-black text-allino-green">View all dishes <ArrowRight size={18}/></Link>
       </Reveal>
 
       <Stagger className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
