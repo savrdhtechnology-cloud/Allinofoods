@@ -6,6 +6,7 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import OrderJourneyTimeline from "@/components/order-journey-timeline";
 import HomeAnimatedBackground from "@/components/background/HomeAnimatedBackground";
+import HeroFoodSlider from "@/components/home/HeroFoodSlider";
 import {AnimatedCard,FloatingOrb,Reveal,Stagger,fadeUp} from "@/components/motion-ui";
 
 const categories=["North Indian","South Indian","Healthy Bowls","Street Food","Desserts","Beverages"];
@@ -35,19 +36,7 @@ export default function Home(){
         <motion.div variants={fadeUp} whileHover={{y:-2}} transition={{type:"spring",stiffness:240,damping:22}} className="mt-8 flex max-w-2xl flex-col gap-3 rounded-2xl bg-white p-3 shadow-card sm:flex-row"><div className="flex flex-1 items-center gap-3 rounded-xl bg-[#f6f8f5] px-4"><MapPin size={19} className="text-allino-lime"/><input aria-label="location" placeholder="Enter your location" className="w-full bg-transparent py-4 outline-none"/></div><motion.button whileHover={{scale:1.035,y:-1}} whileTap={{scale:.975}} transition={{type:"spring",stiffness:360,damping:22}} className="flex items-center justify-center gap-2 rounded-xl bg-allino-green px-6 py-4 font-bold text-white"><Search size={18}/> Find Food</motion.button></motion.div>
         <motion.div variants={fadeUp} className="mt-7 flex flex-wrap gap-5 text-sm font-semibold text-slate-600"><span className="flex gap-2"><ShieldCheck size={18} className="text-allino-lime"/>Verified kitchens</span><span className="flex gap-2"><Clock3 size={18} className="text-allino-gold"/>Fast local delivery</span></motion.div>
       </motion.div>
-      <motion.div initial={{opacity:0,scale:.92,rotateY:-8,y:18}} animate={{opacity:1,scale:1,rotateY:0,y:0}} transition={{type:"spring",stiffness:95,damping:17,mass:.9,delay:.12}} className="relative mx-auto w-full max-w-[570px] [perspective:1200px]">
-        <motion.div animate={{y:[0,-12],x:[0,8],rotate:[-2,2]}} transition={{duration:4.2,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} className="absolute -left-8 top-16 z-20 hidden items-center gap-2 rounded-2xl border border-white/70 bg-white/85 px-4 py-3 text-sm font-black text-allino-green shadow-card backdrop-blur lg:flex"><span className="text-xl">🌿</span> Fresh & Local</motion.div>
-        <motion.div animate={{y:[0,10],x:[0,-7],rotate:[2,-2]}} transition={{duration:5,repeat:Infinity,repeatType:"mirror",ease:"easeInOut",delay:.6}} className="absolute -right-8 top-40 z-20 hidden items-center gap-2 rounded-2xl border border-allino-gold/20 bg-[#fff9ea]/90 px-4 py-3 text-sm font-black text-allino-green shadow-card backdrop-blur lg:flex"><span className="text-xl">⚡</span> 25 min</motion.div>
-        <motion.div animate={{y:[0,-9],x:[0,6],rotate:[-1.5,1.5]}} transition={{duration:4.6,repeat:Infinity,repeatType:"mirror",ease:"easeInOut",delay:1.1}} className="absolute -left-4 bottom-20 z-20 hidden items-center gap-2 rounded-2xl border border-white/70 bg-white/90 px-4 py-3 text-sm font-black text-allino-green shadow-card backdrop-blur lg:flex"><span className="text-xl">⭐</span> 4.9 loved</motion.div>
-        <motion.div animate={{y:[0,-7]}} transition={{duration:4.6,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} whileHover={{rotateX:2.4,rotateY:-3.2,scale:1.012}} className="hero-food-card relative min-h-[500px] overflow-hidden rounded-[2.5rem] border border-white/60 bg-allino-green p-7 shadow-[0_40px_100px_rgba(11,61,46,.3)]" style={{transformStyle:"preserve-3d"}}>
-          <div className="absolute inset-0 mesh opacity-60"/><div className="absolute -right-12 -top-12 h-52 w-52 rounded-full bg-allino-gold/30 blur-2xl"/>
-          <div className="relative z-10 flex h-full min-h-[446px] flex-col justify-between">
-            <div className="flex justify-between text-white"><div><div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.16em] text-white/90"><motion.span animate={{scale:[1,1.65,1],opacity:[1,.45,1]}} transition={{duration:1.7,repeat:Infinity,ease:"easeInOut"}} className="h-2 w-2 rounded-full bg-[#B8E986]"/> Live Kitchen</div><p className="text-sm text-white/65">Today&apos;s highlight</p><h2 className="mt-1 text-3xl font-black">Farm Fresh<br/>Power Bowl</h2></div><motion.span animate={{rotate:[-3,3]}} transition={{duration:2.8,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} className="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 backdrop-blur"><UtensilsCrossed/></motion.span></div>
-            <motion.div animate={{scale:[.99,1.025]}} transition={{duration:3.2,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} className="relative mx-auto my-3 grid h-64 w-64 place-items-center rounded-full bg-[#f7ead0] shadow-[0_30px_80px_rgba(0,0,0,.25)] before:absolute before:inset-6 before:rounded-full before:border before:border-allino-gold/30"><div className="text-center"><motion.span animate={{rotate:[-2,2],y:[1,-2]}} transition={{duration:3,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} className="inline-block text-8xl">🥗</motion.span><p className="mt-2 font-black text-allino-green">Fresh • Local • Daily</p></div></motion.div>
-            <div className="grid grid-cols-3 gap-3">{["4.9 Rating","25 Min","₹199"].map(x=><div key={x} className="rounded-2xl bg-white/10 p-3 text-center text-sm font-bold text-white backdrop-blur">{x}</div>)}</div>
-          </div>
-        </motion.div>
-      </motion.div>
+      <HeroFoodSlider/>
     </div>
   </section>
 
