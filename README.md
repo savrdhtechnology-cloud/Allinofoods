@@ -20,3 +20,8 @@ npm run dev
 Routes:
 - `/` public website
 - `/crm` CRM dashboard
+
+
+## Living background system
+
+The production site uses the reusable `components/background/AnimatedBackground.tsx` system with responsive organic gradients, particles, leaves, parallax, reduced-motion support, and CRM/dark variants.
