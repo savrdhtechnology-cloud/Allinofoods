@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {motion,useReducedMotion} from "framer-motion";
 import {Clock3,MapPin,Plus} from "lucide-react";
-import type {Dish} from "@/lib/dishes";
+import {getDishImage,type Dish} from "@/lib/dishes";
 import Price from "@/components/ui/price";
 import Rating from "@/components/ui/rating";
 
@@ -19,7 +19,7 @@ export default function FoodCard({dish,priority=false}:{dish:Dish;priority?:bool
   >
     <Link href={`/dishes/${dish.slug}`} className="block focus-visible:outline-offset-[-3px]">
       <div className="relative aspect-[4/3] overflow-hidden bg-allino-sand">
-        <Image src={dish.image} alt={dish.dish} fill priority={priority} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="food-card-image object-cover"/>
+        <Image src={getDishImage(dish.slug)} alt={dish.dish} fill priority={priority} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="food-card-image object-cover"/>
         <div className="absolute left-3 top-3 flex flex-wrap gap-2">
           <span className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[.12em] text-allino-green backdrop-blur">{dish.category}</span>
           <span className={`rounded-full px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[.12em] backdrop-blur ${dish.foodType==="Veg"?"bg-[#EAF4E2]/95 text-[#2F6B3A]":"bg-[#FFF0EC]/95 text-[#A84431]"}`}>{dish.foodType}</span>
