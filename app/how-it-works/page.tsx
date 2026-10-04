@@ -16,6 +16,7 @@ import {
   Store,
   TimerReset,
   UserRound,
+  type LucideIcon,
 } from "lucide-react";
 
 import PageShell from "@/components/page-shell";
@@ -87,6 +88,13 @@ const pillars = [
     title: "For Customers",
     text: "Customers discover fresh local food, trusted kitchens and a simpler order experience.",
   },
+];
+
+const liveOrderSteps:{title:string;text:string;icon:LucideIcon}[]=[
+  {title:"Order Received",text:"Customer places order",icon:ClipboardList},
+  {title:"Kitchen Preparing",text:"Food is prepared fresh",icon:CookingPot},
+  {title:"Ready to Dispatch",text:"Packed and handed for delivery",icon:PackageCheck},
+  {title:"Delivered",text:"Order reaches the customer",icon:Bike},
 ];
 
 const servicePoints = [
@@ -161,14 +169,9 @@ export default function HowItWorksPage() {
             >
               <div className="rounded-[2rem] border border-white/10 bg-white/10 p-5 backdrop-blur">
                 <div className="grid gap-4">
-                  {[
-                    ["Order Received", "Customer places order", ClipboardList],
-                    ["Kitchen Preparing", "Food is prepared fresh", CookingPot],
-                    ["Ready to Dispatch", "Packed and handed for delivery", PackageCheck],
-                    ["Delivered", "Order reaches the customer", Bike],
-                  ].map(([title, text, Icon], i) => (
+                  {liveOrderSteps.map(({title,text,icon:Icon}, i) => (
                     <motion.div
-                      key={title as string}
+                      key={title}
                       initial={{ opacity: 0, x: 18 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
