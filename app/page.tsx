@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import {motion} from "framer-motion";
-import {ArrowRight,ChefHat,Clock3,MapPin,Search,ShieldCheck,Sparkles,Star,UtensilsCrossed} from "lucide-react";
+import {ArrowRight,ChefHat,Clock3,MapPin,Search,Star,UtensilsCrossed} from "lucide-react";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import OrderJourneyTimeline from "@/components/order-journey-timeline";
 import HomeAnimatedBackground from "@/components/background/HomeAnimatedBackground";
 import HeroFoodSlider from "@/components/home/HeroFoodSlider";
-import {AnimatedCard,FloatingOrb,Reveal,Stagger,fadeUp} from "@/components/motion-ui";
+import {AnimatedCard,FloatingOrb,Reveal,Stagger} from "@/components/motion-ui";
 
 const categories=["North Indian","South Indian","Healthy Bowls","Street Food","Desserts","Beverages"];
 const kitchens=[
@@ -25,18 +25,40 @@ const featuredDishes=[
 
 export default function Home(){
  return <main className="relative min-h-screen overflow-hidden allino-surface-light"><HomeAnimatedBackground/><div className="relative z-10"><SiteHeader/>
-  <section className="living-section hero-living-bg mesh relative overflow-hidden px-5 pb-16 pt-28 md:pb-20 md:pt-32">
-    <FloatingOrb className="absolute left-[8%] top-28 h-40 w-40 rounded-full bg-allino-lime/20 blur-3xl"/>
-    <FloatingOrb delay={2} className="absolute right-[5%] top-36 h-56 w-56 rounded-full bg-allino-gold/20 blur-3xl"/>
-    <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.04fr_.96fr]">
-      <motion.div initial="hidden" animate="show" variants={{show:{transition:{delayChildren:.08,staggerChildren:.11}}}} className="relative z-10">
-        <motion.div variants={fadeUp} className="mb-5 inline-flex items-center gap-2 rounded-full border border-allino-gold/30 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-allino-green"><Sparkles size={15} className="text-allino-gold"/> Fresh food, closer to you</motion.div>
-        <motion.h1 variants={fadeUp} className="max-w-3xl text-5xl font-black leading-[.98] tracking-[-.04em] text-allino-ink md:text-7xl">Fresh Food.<br/><span className="text-gradient">Local Kitchens.</span><br/>One Platform.</motion.h1>
-        <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">Discover trusted restaurants, talented home chefs and fresh local meals with a warmer, smarter food experience.</motion.p>
-        <motion.div variants={fadeUp} whileHover={{y:-2}} transition={{type:"spring",stiffness:240,damping:22}} className="mt-8 flex max-w-2xl flex-col gap-3 rounded-2xl bg-white p-3 shadow-card sm:flex-row"><div className="flex flex-1 items-center gap-3 rounded-xl bg-[#f6f8f5] px-4"><MapPin size={19} className="text-allino-lime"/><input aria-label="location" placeholder="Enter your location" className="w-full bg-transparent py-4 outline-none"/></div><motion.button whileHover={{scale:1.035,y:-1}} whileTap={{scale:.975}} transition={{type:"spring",stiffness:360,damping:22}} className="flex items-center justify-center gap-2 rounded-xl bg-allino-green px-6 py-4 font-bold text-white"><Search size={18}/> Find Food</motion.button></motion.div>
-        <motion.div variants={fadeUp} className="mt-7 flex flex-wrap gap-5 text-sm font-semibold text-slate-600"><span className="flex gap-2"><ShieldCheck size={18} className="text-allino-lime"/>Verified kitchens</span><span className="flex gap-2"><Clock3 size={18} className="text-allino-gold"/>Fast local delivery</span></motion.div>
-      </motion.div>
+  <section className="relative px-5 pb-8 pt-28 md:pt-32">
+    <div className="relative z-10 mx-auto max-w-7xl">
       <HeroFoodSlider/>
+
+      <motion.div
+        initial={{opacity:0,y:14}}
+        animate={{opacity:1,y:0}}
+        transition={{type:"spring",stiffness:110,damping:20,delay:.18}}
+        className="mx-auto mt-5 grid max-w-5xl gap-3 rounded-[1.6rem] border border-allino-green/10 bg-white/95 p-3 shadow-card backdrop-blur md:grid-cols-[.35fr_1fr_auto]"
+      >
+        <div className="flex items-center gap-3 rounded-xl bg-[#f6f8f5] px-4">
+          <MapPin size={19} className="text-allino-green"/>
+          <span className="py-4 font-black text-allino-green">Bhopal</span>
+        </div>
+        <div className="flex items-center gap-3 rounded-xl bg-[#f6f8f5] px-4">
+          <Search size={19} className="text-allino-green"/>
+          <input aria-label="food search" placeholder="Search dishes, restaurants or home chefs..." className="w-full bg-transparent py-4 outline-none"/>
+        </div>
+        <motion.button whileHover={{y:-2}} whileTap={{scale:.98}} className="flex items-center justify-center gap-2 rounded-xl bg-allino-green px-7 py-4 font-black text-white">
+          <Search size={18}/> Find Food
+        </motion.button>
+      </motion.div>
+
+      <div className="mx-auto mt-5 grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-4">
+        {[
+          ["Verified Kitchens","Trusted home chefs & restaurants"],
+          ["Fresh Ingredients","Hygienic & quality food"],
+          ["Fast Local Delivery","Hot & fresh at your doorstep"],
+          ["Support Local","Help local chefs grow"]
+        ].map(([title,desc],i)=><div key={title} className="rounded-2xl border border-allino-green/5 bg-white/70 p-4 text-center">
+          <p className="font-black text-allino-green">{title}</p>
+          <p className="mt-1 text-xs leading-5 text-slate-500">{desc}</p>
+        </div>)}
+      </div>
     </div>
   </section>
 
