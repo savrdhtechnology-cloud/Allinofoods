@@ -1,10 +1,10 @@
 import type {Metadata,Viewport} from "next";
-import {Manrope,Playfair_Display} from "next/font/google";
+import {DM_Sans,Cormorant_Garamond} from "next/font/google";
 import "./globals.css";
 import MobileBottomNav from "@/components/navigation/mobile-bottom-nav";
 
-const sans=Manrope({subsets:["latin"],variable:"--font-sans",display:"swap"});
-const display=Playfair_Display({subsets:["latin"],variable:"--font-display",display:"swap"});
+const sans=DM_Sans({subsets:["latin"],variable:"--font-sans",display:"swap"});
+const display=Cormorant_Garamond({subsets:["latin"],variable:"--font-display",display:"swap",weight:["500","600","700"]});
 
 export const metadata:Metadata={
   title:{default:"Allino Foods | Discover Great Food",template:"%s | Allino Foods"},
@@ -17,7 +17,7 @@ export const metadata:Metadata={
   }
 };
 
-export const viewport:Viewport={themeColor:"#FFF8ED",colorScheme:"light"};
+export const viewport:Viewport={themeColor:"#F4EAD9",colorScheme:"light"};
 
 export default function RootLayout({children}:{children:React.ReactNode}){
   return <html lang="en" className={`${sans.variable} ${display.variable}`}>
