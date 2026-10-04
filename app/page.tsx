@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {motion,useReducedMotion,useScroll,useTransform} from "framer-motion";
-import {ArrowRight,BadgeCheck,Bike,ChefHat,Clock3,Heart,Leaf,PackageCheck,ShieldCheck,Sparkles,Star,Store,UtensilsCrossed,type LucideIcon} from "lucide-react";
+import {motion,useReducedMotion} from "framer-motion";
+import {ArrowRight,Bike,Leaf,PackageCheck,ShieldCheck,Star,Store,UtensilsCrossed,type LucideIcon} from "lucide-react";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import HeroFoodSlider from "@/components/home/HeroFoodSlider";
-import SearchBar from "@/components/search/search-bar";
 import CategoryCard from "@/components/marketplace/category-card";
 import FoodCard from "@/components/food/food-card";
 import RestaurantCard,{type RestaurantCardData} from "@/components/restaurant/restaurant-card";
@@ -59,10 +58,6 @@ const reveal={hidden:{opacity:0,y:34},show:{opacity:1,y:0}};
 
 export default function Home(){
   const reduce=useReducedMotion();
-  const {scrollY}=useScroll();
-  const heroY=useTransform(scrollY,[0,800],[0,90]);
-  const heroScale=useTransform(scrollY,[0,800],[1,1.04]);
-
   return <main className="min-h-screen bg-allino-cream text-allino-ink">
     <SiteHeader/>
 
