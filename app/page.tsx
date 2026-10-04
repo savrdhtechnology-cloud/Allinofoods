@@ -2,6 +2,7 @@
 import {motion} from "framer-motion";
 import {ArrowRight,ChefHat,Clock3,MapPin,Search,ShieldCheck,Sparkles,Star,UtensilsCrossed} from "lucide-react";
 import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 import {AnimatedCard,FloatingOrb,Reveal,Stagger,fadeUp} from "@/components/motion-ui";
 
 const categories=["North Indian","South Indian","Healthy Bowls","Street Food","Desserts","Beverages"];
@@ -45,6 +46,6 @@ export default function Home(){
 
   <section id="partner" className="px-5 pb-24"><Reveal className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-allino-green p-8 text-white shadow-[0_35px_100px_rgba(11,61,46,.25)] md:p-14"><div className="grid items-center gap-10 lg:grid-cols-2"><div><div className="mb-4 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-allino-gold">Partner with Allino</div><h2 className="text-4xl font-black md:text-5xl">Sell Your Food With Allino.</h2><p className="mt-5 max-w-xl leading-7 text-white/70">Restaurants and home chefs get one platform for orders, menu, earnings, payouts and customer growth.</p><button className="mt-8 rounded-xl bg-allino-gold px-6 py-4 font-black text-allino-ink">Register your kitchen</button></div><div className="relative grid min-h-72 place-items-center"><FloatingOrb className="absolute h-56 w-56 rounded-full bg-allino-lime/20 blur-3xl"/><div className="relative z-10 text-[9rem] drop-shadow-2xl">👨‍🍳</div></div></div></Reveal></section>
 
-  <footer className="border-t border-slate-100 px-5 py-10"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 text-sm text-slate-500 md:flex-row"><b className="text-allino-green">ALLINO FOODS & RESTAURANTS</b><span>Fresh Food. Local Kitchens. One Platform.</span></div></footer>
+  <SiteFooter/>
  </main>
 }
