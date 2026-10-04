@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import GlobalMotionBackground from "@/components/global-motion-background";
+import AnimatedBackground from "@/components/background/AnimatedBackground";
 
 export const metadata: Metadata = {
   title: "ALLINO FOODS & RESTAURANTS",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}:{children:React.ReactNode}) {
-  return <html lang="en"><body className="relative isolate"><GlobalMotionBackground/><div className="relative z-10">{children}</div></body></html>;
+  return <html lang="en"><body className="relative isolate"><AnimatedBackground variant="auto" intensity="subtle" particles leaves parallax/><div className="relative z-10">{children}</div></body></html>;
 }
