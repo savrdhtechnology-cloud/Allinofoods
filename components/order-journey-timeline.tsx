@@ -61,12 +61,12 @@ export default function OrderJourneyTimeline(){
                 initial={{opacity:0,y:reduce?0:18,scale:reduce?1:.96}}
                 whileInView={{opacity:1,y:0,scale:1}}
                 viewport={{once:true,amount:.25}}
-                transition={{delay:reduce?0:i*.42,duration:.45,ease:"easeOut"}}
+                transition={{delay:reduce?0:i*.16,type:"spring",stiffness:120,damping:18,mass:.75}}
                 className="group grid grid-cols-[52px_1fr] items-start gap-4 md:block md:text-center"
               >
                 <motion.div
-                  animate={reduce?{}:{y:[0,-5,0]}}
-                  transition={{duration:2.5,repeat:Infinity,ease:"easeInOut",delay:i*.18}}
+                  animate={reduce?{}:{y:[0,-5]}}
+                  transition={{duration:2.5,repeat:Infinity,repeatType:"mirror",ease:"easeInOut",delay:i*.18}}
                   className="relative mx-auto grid h-13 w-13 place-items-center rounded-2xl border border-white bg-white shadow-[0_12px_32px_rgba(11,61,46,.14)] md:h-16 md:w-16"
                 >
                   <div className="absolute inset-1 rounded-xl bg-gradient-to-br from-green-50 to-amber-50"/>
@@ -74,8 +74,8 @@ export default function OrderJourneyTimeline(){
                   {!reduce && (
                     <motion.span
                       className="absolute -inset-1 rounded-2xl border border-allino-gold/25"
-                      animate={{scale:[1,1.18,1],opacity:[.45,0,.45]}}
-                      transition={{duration:2.2,repeat:Infinity,delay:i*.25}}
+                      animate={{scale:[1,1.16],opacity:[.42,.06]}}
+                      transition={{duration:2.2,repeat:Infinity,repeatType:"mirror",ease:"easeInOut",delay:i*.25}}
                     />
                   )}
                 </motion.div>
@@ -103,8 +103,8 @@ export default function OrderJourneyTimeline(){
               <p className="mt-2 max-w-2xl text-sm leading-6 text-white/65">Real customer orders later actual backend status se map kiye ja sakte hain. Homepage par yeh section process demo ke roop mein animate hota hai.</p>
             </div>
             <motion.div
-              animate={reduce?{}:{x:[-8,10,-8]}}
-              transition={{duration:2.7,repeat:Infinity,ease:"easeInOut"}}
+              animate={reduce?{}:{x:[-7,9]}}
+              transition={{duration:2.7,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}}
               className="flex items-center gap-3 rounded-2xl bg-white/10 px-5 py-4 backdrop-blur"
             >
               <Bike className="text-allino-gold" size={30}/>
