@@ -15,7 +15,7 @@ const kitchens=[
 
 export default function Home(){
  return <main className="min-h-screen allino-surface-light"><SiteHeader/>
-  <section className="mesh relative overflow-hidden px-5 pb-20 pt-36 md:pt-44">
+  <section className="hero-living-bg mesh relative overflow-hidden px-5 pb-20 pt-36 md:pt-44">
     <FloatingOrb className="absolute left-[8%] top-28 h-40 w-40 rounded-full bg-allino-lime/20 blur-3xl"/>
     <FloatingOrb delay={2} className="absolute right-[5%] top-36 h-56 w-56 rounded-full bg-allino-gold/20 blur-3xl"/>
     <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.04fr_.96fr]">
@@ -47,7 +47,7 @@ export default function Home(){
 
   <OrderJourneyTimeline/>
 
-  <section id="partner" className="px-5 pb-24"><Reveal className="dark-aura mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-allino-green p-8 text-white shadow-[0_35px_100px_rgba(11,61,46,.25)] md:p-14"><div className="grid items-center gap-10 lg:grid-cols-2"><div><div className="mb-4 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-allino-gold">Partner with Allino</div><h2 className="text-4xl font-black md:text-5xl">Sell Your Food With Allino.</h2><p className="mt-5 max-w-xl leading-7 text-white/70">Restaurants and home chefs get one platform for orders, menu, earnings, payouts and customer growth.</p><button className="mt-8 rounded-xl bg-allino-gold px-6 py-4 font-black text-allino-ink">Register your kitchen</button></div><div className="relative grid min-h-72 place-items-center"><FloatingOrb className="absolute h-56 w-56 rounded-full bg-allino-lime/20 blur-3xl"/><div className="relative z-10 text-[9rem] drop-shadow-2xl">👨‍🍳</div></div></div></Reveal></section>
+  <section id="partner" className="px-5 pb-24"><Reveal className="dark-aura dark-living-bg mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] p-8 text-white shadow-[0_35px_100px_rgba(11,61,46,.25)] md:p-14"><div className="grid items-center gap-10 lg:grid-cols-2"><div><div className="mb-4 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-allino-gold">Partner with Allino</div><h2 className="text-4xl font-black md:text-5xl">Sell Your Food With Allino.</h2><p className="mt-5 max-w-xl leading-7 text-white/70">Restaurants and home chefs get one platform for orders, menu, earnings, payouts and customer growth.</p><button className="mt-8 rounded-xl bg-allino-gold px-6 py-4 font-black text-allino-ink">Register your kitchen</button></div><div className="relative grid min-h-72 place-items-center"><FloatingOrb className="absolute h-56 w-56 rounded-full bg-allino-lime/20 blur-3xl"/><div className="relative z-10 text-[9rem] drop-shadow-2xl">👨‍🍳</div></div></div></Reveal></section>
 
   <SiteFooter/>
  </main>
