@@ -33,7 +33,7 @@ export default function Home(){
         initial={{opacity:0,y:14}}
         animate={{opacity:1,y:0}}
         transition={{type:"spring",stiffness:110,damping:20,delay:.18}}
-        className="mx-auto mt-5 grid max-w-5xl gap-3 rounded-[1.6rem] border border-allino-green/10 bg-white/95 p-3 shadow-card backdrop-blur md:grid-cols-[.35fr_1fr_auto]"
+        className="mx-auto mt-5 grid max-w-5xl gap-3 border border-allino-green/10 bg-white/95 p-3 shadow-card backdrop-blur md:grid-cols-[.35fr_1fr_auto]"
       >
         <div className="flex items-center gap-3 rounded-xl bg-[#f6f8f5] px-4">
           <MapPin size={19} className="text-allino-green"/>
@@ -48,7 +48,7 @@ export default function Home(){
         </motion.button>
       </motion.div>
 
-      <div className="mx-auto mt-5 grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-4">
+      <div className="mx-auto mt-5 grid max-w-5xl grid-cols-2 gap-3 px-5 md:grid-cols-4 md:px-0">
         {[
           ["Verified Kitchens","Trusted home chefs & restaurants"],
           ["Fresh Ingredients","Hygienic & quality food"],
