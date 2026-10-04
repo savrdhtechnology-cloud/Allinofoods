@@ -13,7 +13,7 @@ const items=[
 
 export default function MobileBottomNav(){
   const pathname=usePathname();
-  if(pathname.startsWith("/crm")||pathname.startsWith("/login")||pathname.startsWith("/register")) return null;
+  if(pathname.startsWith("/crm")||pathname.startsWith("/login")||pathname.startsWith("/register")||pathname.startsWith("/partner/dashboard")) return null;
   return <nav aria-label="Mobile navigation" className="fixed inset-x-0 bottom-0 z-[70] border-t border-black/[.07] bg-white/95 px-2 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden">
     <div className="mx-auto grid max-w-md grid-cols-4">
       {items.map(({href,label,icon:Icon})=>{
