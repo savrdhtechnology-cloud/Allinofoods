@@ -4,6 +4,7 @@ import Link from "next/link";
 import {useParams} from "next/navigation";
 import {ArrowLeft,ChefHat,Clock3,EyeOff,MapPin,ShieldCheck,Star,Store,UtensilsCrossed} from "lucide-react";
 import PageShell from "@/components/page-shell";
+import FoodPhoto from "@/components/dishes/FoodPhoto";
 import {MotionButton,MotionCard,MotionGrid,MotionSection} from "@/components/motion/PageMotion";
 import {getDishBySlug} from "@/lib/dishes";
 
@@ -27,8 +28,16 @@ export default function DishDetailPage(){
     <MotionSection className="px-5 pb-10">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_.9fr]">
         <MotionCard className="overflow-hidden rounded-[2.4rem] border border-allino-green/10 bg-white shadow-card">
-          <div className="relative grid min-h-[420px] place-items-center bg-gradient-to-br from-[#eef8e8] via-[#fff8e8] to-white text-[9rem]">
-            <span className="motion-food-emoji">{dish.emoji}</span>
+          <div className="relative min-h-[420px] overflow-hidden bg-gradient-to-br from-[#eef8e8] via-[#fff8e8] to-white">
+            {dish.imageSet?.length ? (
+              <div className="grid min-h-[420px] grid-cols-2 grid-rows-2 gap-2 p-2">
+                <FoodPhoto index={dish.imageSet[0]} className="col-span-2 row-span-1 h-full min-h-[250px] w-full rounded-[1.6rem]"/>
+                <FoodPhoto index={dish.imageSet[1]} className="h-full min-h-[160px] w-full rounded-[1.4rem]"/>
+                <FoodPhoto index={dish.imageSet[2]} className="h-full min-h-[160px] w-full rounded-[1.4rem]"/>
+              </div>
+            ) : (
+              <div className="grid min-h-[420px] place-items-center text-[9rem]"><span className="motion-food-emoji">{dish.emoji}</span></div>
+            )}
             <div className="absolute left-5 top-5 flex flex-wrap gap-2">
               <span className="rounded-full bg-white/90 px-3 py-2 text-xs font-black uppercase tracking-[.14em] text-allino-green">{dish.partnerType}</span>
               <span className={"rounded-full px-3 py-2 text-xs font-black uppercase tracking-[.14em] "+(dish.foodType==="Veg"?"bg-green-100 text-green-700":"bg-red-50 text-red-700")}>{dish.foodType}</span>
