@@ -6,6 +6,7 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import OrderJourneyTimeline from "@/components/order-journey-timeline";
 import HomeAnimatedBackground from "@/components/background/HomeAnimatedBackground";
+import FoodPhoto from "@/components/dishes/FoodPhoto";
 import {AnimatedCard,FloatingOrb,Reveal,Stagger,fadeUp} from "@/components/motion-ui";
 
 const categories=["North Indian","South Indian","Healthy Bowls","Street Food","Desserts","Beverages"];
@@ -16,10 +17,10 @@ const kitchens=[
 ];
 
 const featuredDishes=[
-  {dish:"Homestyle Thali",maker:"Seema's Home Kitchen",kind:"Home Chef",emoji:"🍱",price:"₹189",rating:"4.9",time:"30 min"},
-  {dish:"Farm Fresh Power Bowl",maker:"Green Bowl Kitchen",kind:"Restaurant",emoji:"🥗",price:"₹199",rating:"4.8",time:"25 min"},
-  {dish:"Paneer Masala Meal",maker:"Spice Route",kind:"Restaurant",emoji:"🍛",price:"₹229",rating:"4.7",time:"30 min"},
-  {dish:"Ghar Ka Tiffin",maker:"Annapurna Meals",kind:"Home Kitchen",emoji:"🥘",price:"₹159",rating:"4.8",time:"35 min"},
+  {dish:"Homestyle Thali",maker:"Seema's Home Kitchen",kind:"Home Chef",emoji:"🍱",price:"₹189",rating:"4.9",time:"30 min",imageIndex:0,slug:"homestyle-thali"},
+  {dish:"Farm Fresh Power Bowl",maker:"Green Bowl Kitchen",kind:"Restaurant",emoji:"🥗",price:"₹199",rating:"4.8",time:"25 min",imageIndex:3,slug:"farm-fresh-power-bowl"},
+  {dish:"Paneer Masala Meal",maker:"Spice Route",kind:"Restaurant",emoji:"🍛",price:"₹229",rating:"4.7",time:"30 min",imageIndex:6,slug:"paneer-masala-meal"},
+  {dish:"Ghar Ka Tiffin",maker:"Annapurna Meals",kind:"Home Kitchen",emoji:"🥘",price:"₹159",rating:"4.8",time:"35 min",imageIndex:null,slug:"ghar-ka-tiffin"},
 ];
 
 export default function Home(){
@@ -43,7 +44,12 @@ export default function Home(){
           <div className="absolute inset-0 mesh opacity-60"/><div className="absolute -right-12 -top-12 h-52 w-52 rounded-full bg-allino-gold/30 blur-2xl"/>
           <div className="relative z-10 flex h-full min-h-[446px] flex-col justify-between">
             <div className="flex justify-between text-white"><div><div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.16em] text-white/90"><motion.span animate={{scale:[1,1.65,1],opacity:[1,.45,1]}} transition={{duration:1.7,repeat:Infinity,ease:"easeInOut"}} className="h-2 w-2 rounded-full bg-[#B8E986]"/> Live Kitchen</div><p className="text-sm text-white/65">Today&apos;s highlight</p><h2 className="mt-1 text-3xl font-black">Farm Fresh<br/>Power Bowl</h2></div><motion.span animate={{rotate:[-3,3]}} transition={{duration:2.8,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} className="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 backdrop-blur"><UtensilsCrossed/></motion.span></div>
-            <motion.div animate={{scale:[.99,1.025]}} transition={{duration:3.2,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} className="relative mx-auto my-3 grid h-64 w-64 place-items-center rounded-full bg-[#f7ead0] shadow-[0_30px_80px_rgba(0,0,0,.25)] before:absolute before:inset-6 before:rounded-full before:border before:border-allino-gold/30"><div className="text-center"><motion.span animate={{rotate:[-2,2],y:[1,-2]}} transition={{duration:3,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} className="inline-block text-8xl">🥗</motion.span><p className="mt-2 font-black text-allino-green">Fresh • Local • Daily</p></div></motion.div>
+            <motion.div animate={{scale:[.99,1.025]}} transition={{duration:3.2,repeat:Infinity,repeatType:"mirror",ease:"easeInOut"}} className="relative mx-auto my-3 h-64 w-64 overflow-hidden rounded-full bg-[#f7ead0] shadow-[0_30px_80px_rgba(0,0,0,.25)] ring-8 ring-white/10">
+              <FoodPhoto index={3} className="h-full w-full"/>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-allino-green/95 to-transparent px-4 pb-5 pt-12 text-center">
+                <p className="font-black text-white">Fresh • Local • Daily</p>
+              </div>
+            </motion.div>
             <div className="grid grid-cols-3 gap-3">{["4.9 Rating","25 Min","₹199"].map(x=><div key={x} className="rounded-2xl bg-white/10 p-3 text-center text-sm font-bold text-white backdrop-blur">{x}</div>)}</div>
           </div>
         </motion.div>
@@ -75,13 +81,15 @@ export default function Home(){
       <Stagger className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {featuredDishes.map((item,i)=><AnimatedCard key={item.dish} className="motion-food-card overflow-hidden rounded-[2rem] border border-allino-green/10 bg-white shadow-card">
           <div className={"relative grid h-52 place-items-center text-8xl "+(i%2===0?"bg-gradient-to-br from-[#eef8e8] to-[#fff5dc]":"bg-gradient-to-br from-[#fff8e8] to-[#eef8e8]")}>
-            <span className="motion-food-emoji">{item.emoji}</span>
-            <span className="absolute left-4 top-4 rounded-full border border-white/60 bg-white/85 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.14em] text-allino-green backdrop-blur">{item.kind}</span>
+            {item.imageIndex !== null
+              ? <FoodPhoto index={item.imageIndex} className="absolute inset-0 h-full w-full"/>
+              : <span className="motion-food-emoji">{item.emoji}</span>}
+            <span className="absolute left-4 top-4 z-10 rounded-full border border-white/60 bg-white/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.14em] text-allino-green backdrop-blur">{item.kind}</span>
           </div>
           <div className="p-6">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h3 className="text-xl font-black text-allino-ink">{item.dish}</h3>
+                <Link href={"/dishes/"+item.slug} className="block"><h3 className="text-xl font-black text-allino-ink transition hover:text-allino-green">{item.dish}</h3></Link>
                 <p className="mt-1 text-sm font-semibold text-slate-500">by {item.maker}</p>
               </div>
               <span className="flex shrink-0 items-center gap-1 rounded-full bg-green-50 px-2.5 py-1 text-xs font-black text-allino-green"><Star size={13} fill="currentColor"/>{item.rating}</span>
@@ -91,8 +99,8 @@ export default function Home(){
                 <p className="text-lg font-black text-allino-ink">{item.price}</p>
                 <p className="text-xs text-slate-500">{item.time} approx.</p>
               </div>
-              <Link href={"/menu?dish="+encodeURIComponent(item.dish)+"&maker="+encodeURIComponent(item.maker)} className="rounded-xl bg-allino-green px-4 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:shadow-lg">
-                Order Now
+              <Link href={"/dishes/"+item.slug} className="rounded-xl bg-allino-green px-4 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:shadow-lg">
+                View & Order
               </Link>
             </div>
           </div>
