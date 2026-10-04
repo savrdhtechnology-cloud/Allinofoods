@@ -19,35 +19,7 @@ import {
 import PageShell from "@/components/page-shell";
 import {MotionButton,MotionCard,MotionGrid,MotionSection} from "@/components/motion/PageMotion";
 
-type FoodType="Veg"|"Non-Veg";
-
-type Dish={
-  dish:string;
-  maker:string;
-  partnerType:string;
-  emoji:string;
-  price:number;
-  rating:number;
-  time:string;
-  location:string;
-  foodType:FoodType;
-  category:string;
-};
-
-const dishes:Dish[]=[
-  {dish:"Homestyle Thali",maker:"Seema's Home Kitchen",partnerType:"Home Chef",emoji:"🍱",price:189,rating:4.9,time:"30 min",location:"Bhopal",foodType:"Veg",category:"Meals"},
-  {dish:"Farm Fresh Power Bowl",maker:"Green Bowl Kitchen",partnerType:"Restaurant",emoji:"🥗",price:199,rating:4.8,time:"25 min",location:"Bhopal",foodType:"Veg",category:"Healthy"},
-  {dish:"Paneer Masala Meal",maker:"Spice Route",partnerType:"Restaurant",emoji:"🍛",price:229,rating:4.7,time:"30 min",location:"Bhopal",foodType:"Veg",category:"Indian"},
-  {dish:"Ghar Ka Tiffin",maker:"Annapurna Meals",partnerType:"Home Kitchen",emoji:"🥘",price:159,rating:4.8,time:"35 min",location:"Raisen",foodType:"Veg",category:"Tiffin"},
-  {dish:"Chicken Curry Meal",maker:"The Local Tandoor",partnerType:"Restaurant",emoji:"🍗",price:279,rating:4.9,time:"30 min",location:"Bhopal",foodType:"Non-Veg",category:"Indian"},
-  {dish:"Egg Masala Tiffin",maker:"Daily Meal Box",partnerType:"Home Kitchen",emoji:"🍳",price:179,rating:4.6,time:"25 min",location:"Bhopal",foodType:"Non-Veg",category:"Tiffin"},
-  {dish:"Poha Breakfast Box",maker:"Ghar Ka Nashta",partnerType:"Home Chef",emoji:"🥣",price:99,rating:4.7,time:"20 min",location:"Bhopal",foodType:"Veg",category:"Breakfast"},
-  {dish:"Homemade Gulab Jamun",maker:"Sweet Home Kitchen",partnerType:"Home Chef",emoji:"🍮",price:129,rating:4.8,time:"25 min",location:"Sehore",foodType:"Veg",category:"Desserts"},
-  {dish:"Veg Pulao Combo",maker:"Annapurna Meals",partnerType:"Home Kitchen",emoji:"🍚",price:169,rating:4.7,time:"30 min",location:"Raisen",foodType:"Veg",category:"Meals"},
-  {dish:"Butter Chicken Combo",maker:"The Local Tandoor",partnerType:"Restaurant",emoji:"🍗",price:329,rating:4.9,time:"35 min",location:"Bhopal",foodType:"Non-Veg",category:"Indian"},
-  {dish:"Millet Healthy Bowl",maker:"Green Bowl Kitchen",partnerType:"Restaurant",emoji:"🥗",price:219,rating:4.8,time:"25 min",location:"Bhopal",foodType:"Veg",category:"Healthy"},
-  {dish:"Home Style Dal Rice",maker:"Seema's Home Kitchen",partnerType:"Home Chef",emoji:"🍲",price:149,rating:4.9,time:"30 min",location:"Bhopal",foodType:"Veg",category:"Meals"},
-];
+import {dishes,type FoodType} from "@/lib/dishes";
 
 const categories=["All","Meals","Tiffin","Indian","Healthy","Breakfast","Desserts"];
 const locations=["All","Bhopal","Raisen","Sehore"];
@@ -149,7 +121,7 @@ export default function DishesPage(){
         {filtered.length>0 ? (
           <MotionGrid className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {filtered.map((item,i)=>
-              <MotionCard key={item.dish+"-"+item.maker} className="motion-food-card overflow-hidden rounded-[2rem] border border-allino-green/10 bg-white shadow-card">
+              <MotionCard key={item.slug} className="motion-food-card overflow-hidden rounded-[2rem] border border-allino-green/10 bg-white shadow-card">
                 <div className={"relative grid h-56 place-items-center text-8xl "+(i%3===0?"bg-gradient-to-br from-[#eef8e8] to-[#fff8e8]":i%3===1?"bg-gradient-to-br from-[#fff7df] to-[#edf7e9]":"bg-gradient-to-br from-[#edf7e9] to-white")}>
                   <span className="motion-food-emoji">{item.emoji}</span>
                   <div className="absolute left-4 top-4 flex flex-wrap gap-2">
@@ -161,7 +133,7 @@ export default function DishesPage(){
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-2xl font-black text-allino-ink">{item.dish}</h3>
+                      <Link href={"/dishes/"+item.slug} className="block"><h3 className="text-2xl font-black text-allino-ink hover:text-allino-green">{item.dish}</h3></Link>
                       <p className="mt-1 text-sm font-bold text-slate-500">by {item.maker}</p>
                     </div>
                     <span className="flex shrink-0 items-center gap-1 rounded-full bg-green-50 px-2.5 py-1 text-xs font-black text-allino-green">
@@ -181,10 +153,10 @@ export default function DishesPage(){
                       <p className="text-xs text-slate-400">per order</p>
                     </div>
                     <Link
-                      href={"/menu?dish="+encodeURIComponent(item.dish)+"&maker="+encodeURIComponent(item.maker)}
+                      href={"/dishes/"+item.slug}
                       className="rounded-xl bg-allino-green px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:shadow-lg"
                     >
-                      Order Now
+                      View Details
                     </Link>
                   </div>
                 </div>
