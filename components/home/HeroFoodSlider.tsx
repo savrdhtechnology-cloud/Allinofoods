@@ -112,14 +112,14 @@ export default function HeroFoodSlider(){
       <div className="absolute inset-0 bg-gradient-to-r from-[#061d16]/95 via-[#0B3D2E]/62 to-black/10"/>
       <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/5"/>
 
-      <button onClick={()=>change(-1)} aria-label="Previous slide" className="absolute left-4 top-1/2 z-30 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/30 bg-black/25 text-white backdrop-blur transition hover:bg-white/20 md:left-6">
+      <button onClick={()=>change(-1)} aria-label="Previous slide" className="absolute left-5 top-1/2 z-30 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/40 bg-black/30 text-white backdrop-blur transition hover:bg-white/20 md:left-8">
         <ChevronLeft size={24}/>
       </button>
-      <button onClick={()=>change(1)} aria-label="Next slide" className="absolute right-4 top-1/2 z-30 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/30 bg-black/25 text-white backdrop-blur transition hover:bg-white/20 md:right-6">
+      <button onClick={()=>change(1)} aria-label="Next slide" className="absolute right-5 top-1/2 z-30 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/40 bg-black/30 text-white backdrop-blur transition hover:bg-white/20 md:right-8">
         <ChevronRight size={24}/>
       </button>
 
-      <div className="relative z-20 mx-auto flex min-h-[560px] max-w-7xl flex-col justify-between px-7 pb-5 pt-10 md:min-h-[600px] md:px-16 md:pb-6 md:pt-14 lg:px-20">
+      <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1500px] flex-col justify-between px-7 pb-5 pt-10 md:min-h-[610px] md:px-20 md:pb-6 md:pt-14 lg:px-28">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.title+"-content"}
@@ -141,7 +141,7 @@ export default function HeroFoodSlider(){
               {current.subtitle}
             </p>
 
-            <div className="mt-8 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="mt-8 grid max-w-3xl grid-cols-2 gap-5 sm:grid-cols-4">
               {current.features.map(([Icon,label])=>{
                 const F=Icon as typeof Leaf;
                 return <div key={label as string} className="flex items-center gap-3 text-sm font-bold text-white/88">
@@ -176,7 +176,7 @@ export default function HeroFoodSlider(){
             {slides.map((slide,i)=><button
               key={slide.title+"-thumb"}
               onClick={()=>setIndex(i)}
-              className={"group relative min-h-[92px] overflow-hidden rounded-2xl border text-left transition md:min-h-[104px] "+(i===index?"border-allino-gold ring-2 ring-allino-gold/30":"border-white/25 opacity-80 hover:opacity-100")}
+              className={"group relative min-h-[92px] overflow-hidden rounded-xl border text-left transition md:min-h-[108px] "+(i===index?"border-allino-gold ring-2 ring-allino-gold/30":"border-white/25 opacity-85 hover:opacity-100")}
             >
               <div className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105" style={{backgroundImage:`url("${slide.image}")`}}/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"/>
