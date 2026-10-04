@@ -30,3 +30,46 @@ jobs:
 
       - name: Production build
         run: npm run build
+
+      - name: Route smoke test
+        shell: bash
+        run: |
+          npm run start -- -p 3000 > /tmp/allino-next.log 2>&1 &
+          APP_PID=$!
+          cleanup() { kill "$APP_PID" 2>/dev/null || true; }
+          trap cleanup EXIT
+
+          for attempt in {1..30}; do
+            if curl --silent --fail http://127.0.0.1:3000/ > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+          routes=(
+            "/"
+            "/about"
+            "/contact"
+            "/dishes"
+            "/dishes/homestyle-thali"
+            "/menu"
+            "/restaurants"
+            "/home-chefs"
+            "/how-it-works"
+            "/customer"
+            "/partner"
+            "/partner/dashboard"
+            "/login"
+            "/register"
+            "/crm"
+          )
+
+          for route in "${routes[@]}"; do
+            echo "Checking $route"
+            curl --fail --silent --show-error "http://127.0.0.1:3000$route" > /dev/null
+          done
+
+          if grep -Eiq "Unhandled|Hydration failed|TypeError:|ReferenceError:" /tmp/allino-next.log; then
+            cat /tmp/allino-next.log
+            exit 1
+          fi
