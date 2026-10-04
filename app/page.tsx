@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {motion,useReducedMotion} from "framer-motion";
-import {ArrowRight,BadgeCheck,Bike,ChefHat,Clock3,Heart,Leaf,PackageCheck,ShieldCheck,Sparkles,Star,Store,UtensilsCrossed} from "lucide-react";
+import {ArrowRight,BadgeCheck,Bike,ChefHat,Clock3,Heart,Leaf,PackageCheck,ShieldCheck,Sparkles,Star,Store,UtensilsCrossed,type LucideIcon} from "lucide-react";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import SearchBar from "@/components/search/search-bar";
@@ -42,6 +42,19 @@ const ownProducts=[
 ];
 
 const fade={hidden:{opacity:0,y:18},show:{opacity:1,y:0}};
+
+const whyAllino:{icon:LucideIcon;title:string;text:string}[]=[
+  {icon:ShieldCheck,title:"Verified partners",text:"Clear partner identity and platform-led discovery."},
+  {icon:Leaf,title:"Fresh-first choices",text:"Food designed around local kitchens and everyday freshness."},
+  {icon:Bike,title:"Simple delivery journey",text:"Easy-to-understand ordering and delivery information."},
+  {icon:Store,title:"One marketplace",text:"Allino Foods, restaurants and home chefs together."}
+];
+
+const howSteps:{icon:LucideIcon;title:string;text:string}[]=[
+  {icon:UtensilsCrossed,title:"1. Discover",text:"Browse dishes, restaurants and home chefs near you."},
+  {icon:PackageCheck,title:"2. Choose & order",text:"Pick what you love and continue through Allino's order journey."},
+  {icon:Bike,title:"3. Fresh to you",text:"Your selected kitchen prepares the food for delivery."}
+];
 
 export default function Home(){
   const reduce=useReducedMotion();
@@ -149,12 +162,7 @@ export default function Home(){
         <div className="grid gap-10 lg:grid-cols-[.82fr_1.18fr] lg:items-end">
           <div><p className="eyebrow !text-allino-gold">Why Allino</p><h2 className="mt-3 text-balance text-4xl font-semibold tracking-[-.04em] sm:text-5xl">Local food discovery, without the guesswork.</h2><p className="mt-5 max-w-xl leading-8 text-white/65">Allino brings customers, restaurants and home chefs into one clear marketplace built around trust and freshness.</p></div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              [ShieldCheck,"Verified partners","Clear partner identity and platform-led discovery."],
-              [Leaf,"Fresh-first choices","Food designed around local kitchens and everyday freshness."],
-              [Bike,"Simple delivery journey","Easy-to-understand ordering and delivery information."],
-              [Store,"One marketplace","Allino Foods, restaurants and home chefs together."]
-            ].map(([Icon,title,text])=>{const C=Icon as typeof ShieldCheck;return <div key={title as string} className="rounded-2xl border border-white/10 bg-white/[.06] p-5"><C size={22} className="text-allino-gold"/><h3 className="mt-4 font-sans text-lg font-extrabold">{title as string}</h3><p className="mt-2 text-sm leading-6 text-white/55">{text as string}</p></div>})}
+            {whyAllino.map(({icon:Icon,title,text})=><div key={title} className="rounded-2xl border border-white/10 bg-white/[.06] p-5"><Icon size={22} className="text-allino-gold"/><h3 className="mt-4 font-sans text-lg font-extrabold">{title}</h3><p className="mt-2 text-sm leading-6 text-white/55">{text}</p></div>)}
           </div>
         </div>
       </div>
@@ -164,11 +172,7 @@ export default function Home(){
       <div className="mx-auto max-w-7xl px-5">
         <SectionHeading eyebrow="How it works" title="From craving to doorstep in three simple steps." href="/how-it-works" linkLabel="See the full journey"/>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {[
-            [UtensilsCrossed,"1. Discover","Browse dishes, restaurants and home chefs near you."],
-            [PackageCheck,"2. Choose & order","Pick what you love and continue through Allino's order journey."],
-            [Bike,"3. Fresh to you","Your selected kitchen prepares the food for delivery."]
-          ].map(([Icon,title,text],i)=>{const C=Icon as typeof UtensilsCrossed;return <div key={title as string} className="relative rounded-[1.6rem] border border-black/[.07] bg-white p-6 shadow-soft"><span className="absolute right-5 top-4 text-5xl font-extrabold text-black/[.04]">0{i+1}</span><span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#F4E8DD] text-allino-coral"><C size={22}/></span><h3 className="mt-6 text-2xl font-semibold">{title as string}</h3><p className="mt-3 text-sm leading-7 text-stone-600">{text as string}</p></div>})}
+          {howSteps.map(({icon:Icon,title,text},i)=><div key={title} className="relative rounded-[1.6rem] border border-black/[.07] bg-white p-6 shadow-soft"><span className="absolute right-5 top-4 text-5xl font-extrabold text-black/[.04]">0{i+1}</span><span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#F4E8DD] text-allino-coral"><Icon size={22}/></span><h3 className="mt-6 text-2xl font-semibold">{title}</h3><p className="mt-3 text-sm leading-7 text-stone-600">{text}</p></div>)}
         </div>
       </div>
     </section>
