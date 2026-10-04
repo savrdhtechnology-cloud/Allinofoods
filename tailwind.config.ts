@@ -1,14 +1,27 @@
 import type { Config } from "tailwindcss";
+
 const config: Config = {
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}","./components/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
-        allino: { green:"#0B3D2E", lime:"#95C11F", gold:"#D6A84B", cream:"#FFF8E8", ink:"#071712" }
+        allino: {
+          green:"#1E4D3A",
+          lime:"#8DBE57",
+          gold:"#E2A93B",
+          cream:"#FFF8ED",
+          ink:"#1E1A17",
+          coral:"#D95F45",
+          sand:"#F2E7D7"
+        }
       },
       boxShadow: {
-        glow:"0 24px 80px rgba(214,168,75,.18)",
-        card:"0 20px 60px rgba(11,61,46,.12)"
+        glow:"0 24px 80px rgba(217,95,69,.16)",
+        card:"0 18px 50px rgba(51,37,27,.10)",
+        soft:"0 10px 35px rgba(51,37,27,.08)"
+      },
+      borderRadius: {
+        "4xl":"2rem"
       }
     }
   },
