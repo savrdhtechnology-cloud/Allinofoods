@@ -1,14 +1,29 @@
 import Link from "next/link";
-import {ChefHat,Mail,MapPin,Phone} from "lucide-react";
+import {ChefHat,Instagram,Mail,MapPin} from "lucide-react";
+
+const groups=[
+  {title:"Discover",links:[["Dishes","/dishes"],["Restaurants","/restaurants"],["Home Chefs","/home-chefs"],["Menu","/menu"]]},
+  {title:"Allino",links:[["About","/about"],["How it works","/how-it-works"],["Partner with us","/partner"],["Contact","/contact"]]},
+  {title:"Account",links:[["Customer","/customer"],["Login","/login"],["Register","/register"],["CRM","/crm"]]}
+] as const;
 
 export default function SiteFooter(){
-  return <footer className="bg-[#071712] px-5 py-14 text-white">
-    <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
-      <div><div className="flex items-center gap-3 font-black"><span className="grid h-10 w-10 place-items-center rounded-xl bg-allino-gold text-allino-ink"><ChefHat size={20}/></span>ALLINO FOODS & RESTAURANTS</div><p className="mt-4 text-sm leading-6 text-white/55">Fresh Food. Local Kitchens. One Platform.</p><p className="mt-5 text-sm font-semibold text-allino-gold">Owner: Seema Choudhary</p></div>
-      <div><h3 className="font-black">Explore</h3><div className="mt-4 space-y-3 text-sm text-white/55"><Link className="block hover:text-white" href="/restaurants">Restaurants</Link><Link className="block hover:text-white" href="/home-chefs">Home Chefs</Link><Link className="block hover:text-white" href="/menu">Food & Menu</Link><Link className="block hover:text-white" href="/how-it-works">How It Works</Link></div></div>
-      <div><h3 className="font-black">Company</h3><div className="mt-4 space-y-3 text-sm text-white/55"><Link className="block hover:text-white" href="/about">About Us</Link><Link className="block hover:text-white" href="/partner">Sell With Allino</Link><Link className="block hover:text-white" href="/contact">Contact</Link><Link className="block hover:text-white" href="/login">Login</Link></div></div>
-      <div><h3 className="font-black">Connect</h3><div className="mt-4 space-y-3 text-sm text-white/55"><p className="flex gap-2"><Mail size={16}/> Contact through our enquiry page</p><p className="flex gap-2"><Phone size={16}/> Customer & partner support</p><p className="flex gap-2"><MapPin size={16}/> India</p></div></div>
+  return <footer className="bg-[#201B17] px-5 pb-24 pt-16 text-white md:pb-10">
+    <div className="mx-auto max-w-7xl">
+      <div className="grid gap-12 lg:grid-cols-[1.25fr_2fr]">
+        <div className="max-w-sm">
+          <Link href="/" className="flex items-center gap-3"><span className="grid h-11 w-11 place-items-center rounded-full bg-allino-coral"><ChefHat size={21}/></span><span className="text-xl font-extrabold">Allino Foods</span></Link>
+          <p className="mt-5 text-2xl font-medium leading-snug text-white/90">Discover great food. From Allino, restaurants & home chefs.</p>
+          <div className="mt-6 flex items-center gap-4 text-sm text-white/55"><span className="inline-flex items-center gap-2"><MapPin size={15}/>India</span><span className="inline-flex items-center gap-2"><Mail size={15}/>Support</span></div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+          {groups.map(group=><div key={group.title}><h3 className="font-sans text-xs font-extrabold uppercase tracking-[.18em] text-allino-gold">{group.title}</h3><div className="mt-5 space-y-3">{group.links.map(([label,href])=><Link key={href} href={href} className="block text-sm font-semibold text-white/60 transition hover:text-white">{label}</Link>)}</div></div>)}
+        </div>
+      </div>
+      <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <span>© 2026 Allino Foods. Fresh food, local talent.</span>
+        <span className="inline-flex items-center gap-2"><Instagram size={14}/>Built for local food discovery</span>
+      </div>
     </div>
-    <div className="mx-auto mt-12 flex max-w-7xl flex-col justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/35 md:flex-row"><span>© 2026 ALLINO FOODS & RESTAURANTS</span><span>Owned by Seema Choudhary</span></div>
-  </footer>
+  </footer>;
 }
