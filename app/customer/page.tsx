@@ -1,3 +1,17 @@
-"use client"; import Link from "next/link"; import {motion} from "framer-motion";
-import {MotionGrid,MotionCard} from "@/components/motion/PageMotion";
-export default function Customer(){return <main className="allino-surface-soft min-h-screen p-5"><div className="mx-auto max-w-6xl"><header className="flex justify-between rounded-2xl bg-allino-green p-5 text-white"><div><b>ALLINO Customer</b><p className="text-xs text-white/50">My food dashboard</p></div><Link href="/" className="text-sm font-bold">Home</Link></header><MotionGrid className="mt-6 grid gap-5 md:grid-cols-3">{[["Active Orders","1"],["Past Orders","14"],["Saved Kitchens","6"]].map(([a,b])=><MotionCard key={a} className="portal-metric rounded-2xl bg-white p-6 shadow-card"><p className="text-sm text-slate-500">{a}</p><p className="mt-3 text-4xl font-black text-allino-green">{b}</p></MotionCard>)}</MotionGrid><motion.div initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{type:"spring",stiffness:110,damping:20,delay:.12}} className="mt-6 rounded-2xl bg-white p-6 shadow-card"><h2 className="text-2xl font-black">Current Order</h2><div className="mt-6 flex flex-wrap gap-3">{["Placed","Confirmed","Preparing","Ready","Out for Delivery","Delivered"].map((x,i)=><span key={x} className={"rounded-full px-4 py-2 text-xs font-bold "+(i<3?"bg-allino-green text-white "+(i===2?"status-live":""):"bg-slate-100 text-slate-400")}>{x}</span>)}</div></motion.div></div></main>}
+"use client";
+import Link from "next/link";
+import {motion,useReducedMotion} from "framer-motion";
+import {ArrowRight,ChefHat,Heart,ShoppingBag} from "lucide-react";
+
+const stages=["Placed","Confirmed","Preparing","Ready","Out for Delivery","Delivered"];
+
+export default function Customer(){
+ const reduce=useReducedMotion();
+ return <main className="min-h-screen bg-[#F7EFE4] px-5 py-5 sm:py-8">
+  <div className="mx-auto max-w-6xl">
+    <header className="flex flex-wrap items-center justify-between gap-4 rounded-[1.5rem] bg-allino-ink p-5 text-white sm:p-6"><div className="flex items-center gap-3"><span className="grid h-11 w-11 place-items-center rounded-full bg-allino-coral"><ChefHat size={20}/></span><div><b>Allino Customer</b><p className="text-xs text-white/45">My food dashboard</p></div></div><div className="flex gap-2"><Link href="/dishes" className="rounded-full bg-white/10 px-4 py-2.5 text-xs font-extrabold">Explore food</Link><Link href="/" className="rounded-full bg-white px-4 py-2.5 text-xs font-extrabold text-allino-ink">Home</Link></div></header>
+    <div className="mt-6 grid gap-4 sm:grid-cols-3">{[[ShoppingBag,"Active Orders","1"],[ChefHat,"Past Orders","14"],[Heart,"Saved Kitchens","6"]].map(([Icon,label,value])=>{const C=Icon as typeof ShoppingBag;return <motion.div initial={reduce?false:{opacity:0,y:12}} animate={{opacity:1,y:0}} key={label as string} className="portal-metric rounded-[1.4rem] border border-black/[.06] bg-white p-6 shadow-soft"><C size={20} className="text-allino-coral"/><p className="mt-5 text-sm font-bold text-stone-500">{label as string}</p><p className="mt-2 text-4xl font-extrabold">{value as string}</p></motion.div>})}</div>
+    <motion.section initial={reduce?false:{opacity:0,y:14}} animate={{opacity:1,y:0}} className="mt-6 rounded-[1.6rem] border border-black/[.06] bg-white p-6 shadow-soft sm:p-8"><div className="flex flex-wrap items-end justify-between gap-4"><div><p className="eyebrow">Current order</p><h2 className="mt-2 text-3xl font-semibold">Fresh meal in progress</h2></div><Link href="/dishes" className="inline-flex items-center gap-2 text-sm font-extrabold text-allino-green">Order more <ArrowRight size={16}/></Link></div><div className="hide-scrollbar mt-7 flex gap-2 overflow-x-auto pb-1">{stages.map((x,i)=><span key={x} className={`shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold ${i<3?"bg-allino-green text-white "+(i===2?"status-live":""):"bg-stone-100 text-stone-400"}`}>{x}</span>)}</div></motion.section>
+  </div>
+ </main>;
+}
