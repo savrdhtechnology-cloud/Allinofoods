@@ -44,7 +44,6 @@ body{margin:0;background:#fffdf8;color:#10251e;font-family:Inter,ui-sans-serif,s
 
 /* Visible living ecosystem motion: local section layers + safe ambient overlay */
 .living-section{position:relative;isolation:isolate;overflow:hidden}
-.living-section>*{position:relative;z-index:2}
 .living-section::before,.living-section::after{
   content:"";position:absolute;pointer-events:none;border-radius:999px;z-index:1;
   filter:blur(60px);will-change:transform;opacity:.55
