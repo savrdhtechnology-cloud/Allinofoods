@@ -5,7 +5,7 @@ import SiteFooter from "@/components/site-footer";
 import {FloatingOrb} from "@/components/motion-ui";
 
 export default function PageShell({eyebrow,title,description,children}:{eyebrow:string;title:string;description:string;children:React.ReactNode}){
- return <main className="min-h-screen bg-[#fffdf8] text-allino-ink"><SiteHeader/>
+ return <main className="min-h-screen allino-surface-light text-allino-ink"><SiteHeader/>
   <section className="mesh relative overflow-hidden px-5 pb-16 pt-36">
     <FloatingOrb className="absolute left-[5%] top-20 h-40 w-40 rounded-full bg-allino-lime/20 blur-3xl"/>
     <FloatingOrb delay={2} className="absolute right-[8%] top-24 h-52 w-52 rounded-full bg-allino-gold/20 blur-3xl"/>
