@@ -1,5 +1,15 @@
 import PageShell from "@/components/page-shell";
-import {MotionGrid,MotionCard} from "@/components/motion/PageMotion";
-export default function HomeChefs(){return <PageShell eyebrow="Home Chefs" title="Homestyle food from talented local chefs." description="Discover small-batch meals made by verified home chefs and neighborhood kitchens.">
-<section className="px-5 py-20"><MotionGrid className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">{[["Seema's Home Kitchen","North Indian"],["Annapurna Meals","Vegetarian"],["Ghar Ka Tiffin","Daily Tiffin"]].map(([a,b])=><MotionCard key={a} className="motion-chef-card rounded-3xl bg-white p-7 shadow-card"><div className="mb-6 text-7xl"><span className="motion-chef-icon">👩‍🍳</span></div><h2 className="text-2xl font-black">{a}</h2><p className="mt-2 text-slate-500">{b}</p><div className="mt-5 flex gap-2 text-xs font-bold"><span className="rounded-full bg-green-50 px-3 py-1 text-allino-green">Verified</span><span className="rounded-full bg-amber-50 px-3 py-1 text-amber-700">Local</span></div></MotionCard>)}</MotionGrid></section>
+import ChefCard,{type ChefCardData} from "@/components/chef/chef-card";
+
+const chefs:ChefCardData[]=[
+{name:"Seema's Home Kitchen",specialty:"Homestyle meals & thali",rating:4.9,location:"Bhopal",dishes:8,image:"https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=82"},
+{name:"Annapurna Meals",specialty:"Vegetarian tiffin",rating:4.8,location:"Raisen",dishes:6,image:"https://images.unsplash.com/photo-1556911073-38141963c9e0?auto=format&fit=crop&w=900&q=82"},
+{name:"Sweet Home Kitchen",specialty:"Homemade desserts",rating:4.8,location:"Sehore",dishes:5,image:"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=82"},
+{name:"Ghar Ka Nashta",specialty:"Breakfast & local snacks",rating:4.7,location:"Bhopal",dishes:7,image:"https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=82"},
+{name:"Daily Meal Box",specialty:"Quick tiffin & meals",rating:4.6,location:"Bhopal",dishes:9,image:"https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=900&q=82"},
+{name:"Home Spice Kitchen",specialty:"Indian comfort food",rating:4.8,location:"Bhopal",dishes:6,image:"https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=900&q=82"}
+];
+
+export default function HomeChefs(){return <PageShell eyebrow="Home chefs" title="Homestyle food from talented local chefs." description="Discover small-batch meals made by local home chefs and neighborhood kitchens.">
+<section className="px-5 py-14 sm:py-20"><div className="mx-auto max-w-7xl"><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{chefs.map(chef=><ChefCard key={chef.name} chef={chef}/>)}</div></div></section>
 </PageShell>}
