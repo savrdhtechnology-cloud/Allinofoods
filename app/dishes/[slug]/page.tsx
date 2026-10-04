@@ -26,7 +26,7 @@ export default function DishDetailPage(){
           <div className="relative aspect-[4/3] overflow-hidden bg-allino-sand">
             <Image src={getDishImage(dish.slug)} alt={dish.dish} fill priority sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover"/>
             <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-              <span className="rounded-full bg-white/92 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[.13em] text-allino-green backdrop-blur">{dish.partnerType}</span>
+              <span className="rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[.13em] text-allino-green backdrop-blur">{dish.partnerType}</span>
               <span className={`rounded-full px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[.13em] ${dish.foodType==="Veg"?"bg-[#EAF4E2] text-[#2F6B3A]":"bg-[#FFF0EC] text-[#A84431]"}`}>{dish.foodType}</span>
             </div>
           </div>
