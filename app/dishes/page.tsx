@@ -13,7 +13,7 @@ const locations=["All","Bhopal","Raisen","Sehore"];
 function DishesContent(){
   const params=useSearchParams();
   const [query,setQuery]=useState(params.get("q") ?? "");
-  const [location,setLocation]=useState("All");
+  const [location,setLocation]=useState(params.get("location") ?? "All");
   const [foodType,setFoodType]=useState<"All"|FoodType>("All");
   const [category,setCategory]=useState(params.get("category") ?? "All");
   const [sort,setSort]=useState("Recommended");
